@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+<style>
+  /* ============ DESIGN (colors, fonts) — optional to edit ============ */
+  :root {
+    --accent: #6c5ce7;        /* main highlight color */
+    --bg: #0f1115;            /* page background */
+    --card: #1a1d24;          /* card background */
+    --text: #e8e8ea;          /* main text */
+    --muted: #9aa0aa;         /* dimmed text */
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  /* Navbar */
+  nav {
+    position: sticky; top: 0; background: rgba(15,17,21,0.85);
+    backdrop-filter: blur(10px); z-index: 100;
+    border-bottom: 1px solid #23272f;
+  }
+  nav .container { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+  nav .logo { font-weight: 700; font-size: 1.2rem; }
+  nav .links a { margin-left: 24px; color: var(--text); font-size: 0.95rem; }
+  nav .links a:hover { color: var(--accent); }
+
+  /* Hero */
+  header { padding: 90px 0 70px; text-align: center; }
+  header img.avatar {
+    width: 130px; height: 130px; border-radius: 50%;
+    object-fit: cover; border: 3px solid var(--accent); margin-bottom: 20px;
+  }
+  header h1 { font-size: 2.6rem; margin-bottom: 8px; }
+  header .role { color: var(--accent); font-size: 1.2rem; margin-bottom: 16px; }
+  header p.tagline { color: var(--muted); max-width: 600px; margin: 0 auto 28px; }
+  .btn {
+    display: inline-block; background: var(--accent); color: #fff;
+    padding: 12px 28px; border-radius: 8px; font-weight: 600;
+    margin: 0 8px; transition: transform 0.15s;
+  }
+  .btn.secondary { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+  .btn:hover { transform: translateY(-2px); }
+
+  /* Sections */
+  section { padding: 60px 0; border-top: 1px solid #23272f; }
+  section h2 { font-size: 1.8rem; margin-bottom: 28px; text-align: center; }
+  section h2 span { color: var(--accent); }
+
+  /* About */
+  .about-text { color: var(--muted); max-width: 720px; margin: 0 auto; text-align: center; }
+
+  /* Skills */
+  .skills { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .skill {
+    background: var(--card); padding: 10px 18px; border-radius: 24px;
+    font-size: 0.9rem; border: 1px solid #2a2e37;
+  }
+
+  /* Projects */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .project {
+    background: var(--card); border: 1px solid #2a2e37; border-radius: 12px;
+    overflow: hidden; transition: transform 0.2s, border-color 0.2s;
+  }
+  .project:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .project img { width: 100%; height: 170px; object-fit: cover; }
+  .project .body { padding: 20px; }
+  .project h3 { margin-bottom: 8px; }
+  .project p { color: var(--muted); font-size: 0.92rem; margin-bottom: 14px; }
+  .project .tags { font-size: 0.8rem; color: var(--accent); margin-bottom: 14px; }
+
+  /* Experience */
+  .timeline { max-width: 720px; margin: 0 auto; }
+  .job {
+    background: var(--card); border: 1px solid #2a2e37; border-radius: 12px;
+    padding: 22px; margin-bottom: 18px;
+  }
+  .job .top { display: flex; justify-content: space-between; flex-wrap: wrap; }
+  .job h3 { font-size: 1.1rem; }
+  .job .date { color: var(--muted); font-size: 0.88rem; }
+  .job .company { color: var(--accent); font-size: 0.95rem; margin-bottom: 8px; }
+  .job p { color: var(--muted); font-size: 0.92rem; }
+
+  /* Contact */
+  .contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .contact-links a {
+    background: var(--card); border: 1px solid #2a2e37; padding: 12px 22px;
+    border-radius: 8px; color: var(--text);
+  }
+  .contact-links a:hover { border-color: var(--accent); color: var(--accent); }
+
+  footer { text-align: center; padding: 30px 0; color: var(--muted); font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<!-- ==================================================================== -->
+<!-- ============  EDIT YOUR INFORMATION IN THE SCRIPT BELOW  ============ -->
+<!-- ====  Scroll to the bottom <script> tag to fill in your details  ==== -->
+<!-- ==================================================================== -->
+
+<nav>
+  <div class="container">
+    <div class="logo" id="nav-logo"></div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="container">
+    <img class="avatar" id="avatar" alt="Profile photo">
+    <h1 id="name"></h1>
+    <div class="role" id="role"></div>
+    <p class="tagline" id="tagline"></p>
+    <a class="btn" id="cta-resume" target="_blank">Download Resume</a>
+    <a class="btn secondary" href="#contact">Get in Touch</a>
+  </div>
+</header>
+
+<section id="about">
+  <div class="container">
+    <h2>About <span>Me</span></h2>
+    <p class="about-text" id="about-text"></p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <h2>My <span>Skills</span></h2>
+    <div class="skills" id="skills-list"></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2>My <span>Projects</span></h2>
+    <div class="grid" id="projects-list"></div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <h2>Work <span>Experience</span></h2>
+    <div class="timeline" id="experience-list"></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2>Get In <span>Touch</span></h2>
+    <p class="about-text" id="contact-text" style="margin-bottom:28px;"></p>
+    <div class="contact-links" id="contact-links"></div>
+  </div>
+</section>
+
+<footer id="footer"></footer>
+
+<!-- ==================================================================== -->
+<!-- ====================  ✏️  YOUR DETAILS GO HERE  ===================== -->
+<!-- ====  Only change the text between the quotes. Keep the quotes!  ==== -->
+<!-- ==================================================================== -->
+<script>
+const portfolio = {
+
+  // --- Basic info ---
+  name: "Mantavya Maan",
+  role: ""4th Year Mathematics Undergraduate | IIT Bombay",          // your job title
+  tagline: "Building intelligent systems through mathematics, data, and AI.",
+  avatar: "[via.placeholder.com](https://via.placeholder.com/130)",  // link to your photo, or a file like "me.jpg"
+  resumeLink: "https://drive.google.com/file/d/1SeVwSo64r7NJNVdiQTCl3PuPXq70ZWT0/view",                            // link to your resume PDF, or leave as "#"
+
+  // --- About section ---
+  about: "I'm a fourth-year Mathematics undergraduate at IIT Bombay with a passion for mathematics, artificial intelligence, and data-driven decision making. I thrive on breaking down complex problems into elegant, scalable solutions and continuously exploring new technologies that bridge theory with real-world applications",
+
+  // --- Skills: add or remove items in the list ---
+  skills: ["Python", "C++", "SQL","Data Analytics","Machine Learning", "Mathematical Modelling", "Statistical Analysis", "Tableau","NumPy","Pandas","Git"],
+
+  // --- Projects: copy a block to add more ---
+  projects: [
+    {
+      title: "Lead Scoring Model",
+      description: "Developed an intelligent lead scoring framework that evaluates prospects using business, financial, engagement, and behavioral metrics to prioritize high-value leads and improve sales decision-making.",
+      tags: "Python · Predictive Analytics · Business Intelligence · NumPy · Pandas · SciPy",
+      link: "https://github.com/mantavyamaan/Lead_Score"                               // link to live project or GitHub
+    },
+    {
+      title: "Project Scoring Model",
+      description: "Architected a decision intelligence framework that quantitatively evaluates projects using strategic, financial, operational, and risk-based indicators for portfolio optimization.",
+      tags: "Python · Decision Intelligence · Mathematical Modeling · Optimization · Analytics",
+      link: "https://github.com/mantavyamaan/Project_Score"
+    },
+    {
+      title: "Employee Scoring Model",
+      description: "Developed a data-driven employee evaluation framework that integrates multiple performance dimensions into a standardized score to support objective workforce assessment and talent management.",
+      tags: "Python · HR Analytics · Statistical Modeling · Business Analytics · Performance Evaluation",
+      link: "https://github.com/mantavyamaan/Employee_Score"
+    }
+  ],
+
+  // --- Work experience: copy a block to add more ---
+  experience: [
+    {
+      title: "Data Analyst Intern",
+      company: "Fino Payment Bank",
+      date: "Jun'25 - Jul'25",
+      description: "Built data-driven analytics solutions using SQL, Python, and Tableau to uncover financial trends, analyze customer behavior, and deliver interactive dashboards that enabled strategic business decision-making."
+    },
+    {
+      title: "Machine Learning and Data Engineering Intern",
+      company: "Gardpipe",
+      date: "Nov'25 — Dec'25",
+      description: "Developed an AI-powered talent evaluation platform leveraging vector databases, hybrid search, AST-based code analysis, and LLM evaluation frameworks to deliver intelligent candidate discovery, automated technical scoring, and reliable benchmarking."
+    }
+    {
+      title: "Mathematical Modelling Intern",
+      company: "Palpx",
+      date: "May'25 - Jul'25",
+      description: "Developing intelligent business scoring models for lead qualification, project prioritization, and employee performance evaluation using mathematical modeling and predictive analytics, while strengthening expertise in Lambda Calculus to deepen understanding of computational theory and functional programming."
+    }
+  ],
+
+  // --- Contact ---
+  contactText: "Feel free to reach out — I'm always open to new opportunities and collaborations.",
+  contacts: [
+    { label: "Gmail",    link: "mailto:maanmantavya.iitb@gmail.com" },
+    { label: "LinkedIn", link: "[linkedin.com](https://www.linkedin.com/in/mantavya-maan-892304277)" },
+    { label: "GitHub",   link: "[github.com](https://github.com/mantavyamaan)" },
+    { label: "Instagram",  link: "[instagram.com](https://instagram.com/maan_mantavya_)" }
+  ]
+};
+
+// ==================================================================== //
+// ====  DON'T EDIT BELOW THIS LINE — it builds the page for you  ===== //
+// ==================================================================== //
+(function build() {
+  const $ = id => document.getElementById(id);
+  $("nav-logo").textContent = portfolio.name;
+  $("avatar").src = portfolio.avatar;
+  $("name").textContent = portfolio.name;
+  $("role").textContent = portfolio.role;
+  $("tagline").textContent = portfolio.tagline;
+  $("cta-resume").href = portfolio.resumeLink;
+  $("about-text").textContent = portfolio.about;
+  $("contact-text").textContent = portfolio.contactText;
+  $("footer").textContent = "© " + new Date().getFullYear() + " " + portfolio.name + ". All rights reserved.";
+
+  $("skills-list").innerHTML = portfolio.skills
+    .map(s => `<div class="skill">${s}</div>`).join("");
+
+  $("projects-list").innerHTML = portfolio.projects.map(p => `
+    <div class="project">
+      <img src="${p.image}" alt="${p.title}">
+      <div class="body">
+        <h3>${p.title}</h3>
+        <div class="tags">${p.tags}</div>
+        <p>${p.description}</p>
+        <a href="${p.link}" target="_blank">View Project →</a>
+      </div>
+    </div>`).join("");
+
+  $("experience-list").innerHTML = portfolio.experience.map(e => `
+    <div class="job">
+      <div class="top"><h3>${e.title}</h3><span class="date">${e.date}</span></div>
+      <div class="company">${e.company}</div>
+      <p>${e.description}</p>
+    </div>`).join("");
+
+  $("contact-links").innerHTML = portfolio.contacts
+    .map(c => `<a href="${c.link}" target="_blank">${c.label}</a>`).join("");
+})();
+</script>
+</body>
+</html>
