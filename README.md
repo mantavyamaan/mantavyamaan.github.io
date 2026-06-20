@@ -1,1 +1,1 @@
-This is my portfolio webiste: [My Portfolio](https://mantavyamaan.github.io/)
+This is my portfolio webiste: [mantavya](https://mantavyamaan.github.io/)
