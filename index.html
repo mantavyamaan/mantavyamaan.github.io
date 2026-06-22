@@ -289,11 +289,14 @@
 
   /* ─── HERO ───────────────────────────────────────────────────── */
   .hero {
-    min-height: 100vh;
-    display: flex; align-items: center; justify-content: center;
-    padding: 100px 0 80px;
-    position: relative; overflow: hidden;
-  }
+    min-height: calc(100vh + 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0 120px;
+    position: relative;
+    overflow: hidden;
+}
   .hero::before {
     content: '';
     position: absolute;
@@ -388,7 +391,7 @@
   .btn-outline:hover { background: var(--accent-dim); color: var(--accent-light); }
 
   .scroll-hint {
-    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 6px;
     color: var(--text3); font-size: 0.75rem; letter-spacing: 0.1em;
     animation: float 2.5s ease-in-out infinite;
@@ -435,6 +438,9 @@
     transition: border-color 0.3s, box-shadow 0.3s;
     transform-style: preserve-3d;
     will-change: transform;
+    color: inherit;
+    text-decoration: none;
+    display: block;
   }
   .stat-card:hover { border-color: var(--border-hover); box-shadow: 0 12px 30px rgba(124,106,247,0.18); }
   .stat-card .stat-num {
@@ -535,6 +541,9 @@
     border-radius: var(--radius-lg); padding: 28px 28px 28px 68px;
     margin-bottom: 22px; position: relative;
     transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    color: inherit;
+    text-decoration: none;
+    display: block;
   }
   .job-card:hover { border-color: var(--border-hover); transform: translateX(8px); box-shadow: 0 8px 30px rgba(124,106,247,0.15); }
   .job-dot {
@@ -601,10 +610,22 @@
 
   /* ─── RESPONSIVE ─────────────────────────────────────────────── */
   @media (hover: none), (pointer: coarse) {
-    body { cursor: auto; }
-    .cursor-dot, .cursor-ring, .cursor-label { display: none; }
+      body { cursor: auto; }
+      .cursor-dot, .cursor-ring, .cursor-label { display: none; }
+    }
+    @media (max-width: 768px) {
+      .hero{
+      min-height:calc(100vh + 100px);
+      padding-bottom:120px;
   }
-  @media (max-width: 768px) {
+  
+  .hero-btns{
+      gap:18px;
+  }
+  
+  .scroll-hint{
+      bottom:15px;
+  }
     .nav-links { display: none; }
     .nav-links.open {
       display: flex; flex-direction: column;
@@ -740,22 +761,22 @@
       </div>
 
       <div class="about-stats fade-up">
-        <div class="stat-card tilt">
+        <a class="stat-card tilt" href="#experience">
           <div class="stat-num" data-count="3" data-suffix="+">0</div>
           <div class="stat-label">Internships Completed</div>
-        </div>
-        <div class="stat-card tilt">
+        </a>
+        <a class="stat-card tilt" href="https://github.com/mantavyamaan?tab=repositories" target="_blank" rel="noopener">
           <div class="stat-num" data-count="10" data-suffix="+">0</div>
           <div class="stat-label">Real-Life Projects Built</div>
-        </div>
-        <div class="stat-card tilt">
+        </a>
+        <a class="stat-card tilt" href="https://www.iitb.ac.in" target="_blank" rel="noopener">
           <div class="stat-num">IIT</div>
           <div class="stat-label">Bombay, Mathematics</div>
-        </div>
-        <div class="stat-card tilt">
+        </a>
+        <a class="stat-card tilt" href="https://www.claymath.org/millennium-problems/" target="_blank" rel="noopener">
           <div class="stat-num">∞</div>
           <div class="stat-label">Problems to Solve</div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -881,18 +902,21 @@ const data = {
       title: "Data Analyst Intern",
       company: "Fino Payment Bank",
       date: "Jun'25 – Jul'25",
+      website: "https://www.finobank.com",
       description: "Built data-driven analytics solutions using SQL, Python, and Tableau to analyze financial transactions, customer behavior, and operational performance, developing interactive dashboards and actionable insights that supported strategic business decisions and process optimization."
     },
     {
       title: "Machine Learning & Data Engineering Intern",
       company: "Gardpipe",
       date: "Nov'25 – Dec'25",
+      website: "https://www.gradpipe.com/",
       description: "Developed an AI-powered talent evaluation platform by integrating vector databases, hybrid semantic search, AST-based code analysis, and LLM evaluation frameworks to enable intelligent candidate discovery, automate technical assessments, benchmark coding performance, and improve the accuracy and efficiency of recruitment workflows."
     },
     {
       title: "Mathematical Modelling Intern",
       company: "Palpx",
       date: "May'26 – Jul'26",
+      website: "https://palpx.com",
       description: "Engineered mathematical decision-support models for lead qualification, project prioritization, employee performance evaluation, and employee growth assessment using statistical modeling, predictive analytics, normalization techniques, and weighted scoring methodologies. Conducted research in Lambda Calculus to deepen expertise in computational theory, functional programming, and formal mathematical foundations for designing scalable analytical systems."
     }
   ],
@@ -929,9 +953,10 @@ const data = {
       </a>
     `).join("");
 
+  /* each job card is now a clickable link to the company website */
   document.getElementById("experience-list").innerHTML =
     data.experience.map(e => `
-      <div class="job-card fade-up">
+      <a class="job-card fade-up" href="${e.website}" target="_blank" rel="noopener">
         <div class="job-dot"></div>
         <div class="job-top">
           <h3>${e.title}</h3>
@@ -939,7 +964,7 @@ const data = {
         </div>
         <div class="job-company">${e.company}</div>
         <p>${e.description}</p>
-      </div>
+      </a>
     `).join("");
 
   document.getElementById("contact-links").innerHTML =
@@ -1091,7 +1116,7 @@ function resizePC() { pc.width = innerWidth; pc.height = innerHeight; }
 resizePC();
 window.addEventListener("resize", resizePC);
 function initParticles() {
-  const count = Math.min(90, Math.floor(innerWidth / 16));
+  const count = Math.min(60, Math.floor(innerWidth / 22));
   particles = Array.from({length: count}, () => ({
     x: Math.random()*pc.width, y: Math.random()*pc.height,
     vx: (Math.random()-0.5)*0.4, vy: (Math.random()-0.5)*0.4,
