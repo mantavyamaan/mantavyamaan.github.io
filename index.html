@@ -561,8 +561,64 @@
   .job-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
   .job-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; }
   .job-date { background: var(--accent-dim); color: var(--accent-light); padding: 3px 12px; border-radius: 100px; font-size: 0.78rem; font-weight: 500; white-space: nowrap; }
-  .job-company { color: var(--accent); font-size: 0.92rem; font-weight: 600; margin-bottom: 10px; }
-  .job-card p { color: var(--text2); font-size: 0.9rem; line-height: 1.75; }
+  .job-company {
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+.job-company .job-chevron {
+  font-size: 0.8rem;
+  transition: transform 0.25s ease;
+}
+.job-card.open .job-company .job-chevron {
+  transform: rotate(180deg);
+}
+.job-card p { color: var(--text2); font-size: 0.9rem; line-height: 1.75; }
+
+.job-details {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  display: none;
+}
+.job-card.open .job-details {
+  display: block;
+}
+.job-detail-block {
+  margin-bottom: 16px;
+}
+.job-detail-block:last-child {
+  margin-bottom: 0;
+}
+.job-detail-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 8px;
+}
+.job-detail-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text2);
+}
+.job-detail-list li {
+  margin-bottom: 6px;
+  line-height: 1.7;
+}
+.job-detail-text {
+  color: var(--text2);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
 
   /* ─── CONTACT ────────────────────────────────────────────────── */
   .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
@@ -725,10 +781,6 @@
       </p>
 
       <div class="hero-btns">
-        <a class="btn btn-primary ripple-host" data-magnetic href="mantavya_resume.pdf" target="_blank" rel="noopener">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15V3m0 12-4-4m4 4 4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
-          Download Resume
-        </a>
         <a class="btn btn-outline ripple-host" data-magnetic href="mantavya_resume.pdf" target="_blank" rel="noopener">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           View Resume
@@ -763,9 +815,6 @@
           constantly exploring new technologies that bridge theory with real-world applications.
         </p>
         <div style="margin-top: 28px; display:flex; gap:12px; flex-wrap:wrap;">
-          <a class="btn btn-primary ripple-host" data-magnetic href="mantavya_resume.pdf" target="_blank" rel="noopener" style="font-size:0.88rem; padding: 10px 22px;">
-            Download Resume
-          </a>
           <a class="btn btn-outline ripple-host" data-magnetic href="mantavya_resume.pdf" target="_blank" rel="noopener" style="font-size:0.88rem; padding: 10px 22px;">
             View Resume
           </a>
@@ -781,14 +830,14 @@
           <div class="stat-num" data-count="10" data-suffix="+">0</div>
           <div class="stat-label">Real-Life Projects Built</div>
         </a>
-        <a class="stat-card tilt" href="https://www.iitb.ac.in" target="_blank" rel="noopener">
-          <div class="stat-num">IIT</div>
-          <div class="stat-label">Bombay, Mathematics</div>
-        </a>
-        <a class="stat-card tilt" href="https://www.claymath.org/millennium-problems/" target="_blank" rel="noopener">
-          <div class="stat-num">∞</div>
-          <div class="stat-label">Problems to Solve</div>
-        </a>
+        <div class="stat-card">
+      <div class="stat-num">IIT</div>
+      <div class="stat-label">Bombay, Mathematics</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Problems to Solve</div>
+    </div>
       </div>
     </div>
   </div>
@@ -910,28 +959,107 @@ const data = {
     }
   ],
   experience: [
-    {
-      title: "Data Analyst Intern",
-      company: "Fino Payment Bank",
-      date: "Jun'25 – Jul'25",
-      website: "https://www.finobank.com",
-      description: "Built data-driven analytics solutions using SQL, Python, and Tableau to analyze financial transactions, customer behavior, and operational performance, developing interactive dashboards and actionable insights that supported strategic business decisions and process optimization."
-    },
-    {
-      title: "Machine Learning & Data Engineering Intern",
-      company: "Gardpipe",
-      date: "Nov'25 – Dec'25",
-      website: "https://www.gradpipe.com/",
-      description: "Developed an AI-powered talent evaluation platform by integrating vector databases, hybrid semantic search, AST-based code analysis, and LLM evaluation frameworks to enable intelligent candidate discovery, automate technical assessments, benchmark coding performance, and improve the accuracy and efficiency of recruitment workflows."
-    },
-    {
-      title: "Mathematical Modelling Intern",
-      company: "Palpx",
-      date: "May'26 – Jul'26",
-      website: "https://palpx.com",
-      description: "Engineered mathematical decision-support models for lead qualification, project prioritization, employee performance evaluation, and employee growth assessment using statistical modeling, predictive analytics, normalization techniques, and weighted scoring methodologies. Conducted research in Lambda Calculus to deepen expertise in computational theory, functional programming, and formal mathematical foundations for designing scalable analytical systems."
-    }
-  ],
+  {
+    title: "Data Analyst Intern",
+    company: "Fino Payment Bank",
+    date: "Jun'25 – Jul'25",
+    description: "Built data-driven analytics solutions using SQL, Python, and Tableau to analyze financial transactions, customer behavior, and operational performance, developing interactive dashboards and actionable insights that supported strategic business decisions and process optimization.",
+    technologies: ["Python", "SQL", "Tableau", "Excel", "Pandas", "Matplotlib"],
+    responsibilities: [
+      "Analyzed customer transactions and operational performance data.",
+      "Built dashboards and reports for business stakeholders.",
+      "Cleaned, transformed, and structured raw datasets for analysis."
+    ],
+    projectsCompleted: [
+      "Customer segmentation dashboard",
+      "Transaction behavior analysis",
+      "Operational KPI reporting dashboards",
+      "Automated reporting workflows"
+    ],
+    impact: [
+      "Improved decision-making through clearer business insights.",
+      "Reduced manual reporting effort through automation.",
+      "Enabled faster tracking of performance metrics."
+    ],
+    skillsLearned: [
+      "Financial data analysis",
+      "Dashboard storytelling",
+      "Business KPI design",
+      "Data cleaning and reporting automation"
+    ],
+    keyAchievements: [
+      "Delivered actionable analytics solutions using Python, SQL, and Tableau.",
+      "Translated business questions into measurable dashboard metrics."
+    ]
+  },
+  {
+    title: "Machine Learning & Data Engineering Intern",
+    company: "Gradpipe",
+    date: "Nov'25 – Dec'25",
+    description: "Developed an AI-powered talent evaluation platform by integrating vector databases, hybrid semantic search, AST-based code analysis, and LLM evaluation frameworks to enable intelligent candidate discovery, automate technical assessments, benchmark coding performance, and improve the accuracy and efficiency of recruitment workflows.",
+    technologies: ["Python", "Vector Databases", "LLMs", "Hybrid Search", "AST Analysis", "Data Engineering"],
+    responsibilities: [
+      "Built core components of an AI-powered recruitment evaluation platform.",
+      "Worked on candidate discovery, semantic search, and automated assessment workflows.",
+      "Integrated engineering and ML systems for scalable technical evaluation."
+    ],
+    projectsCompleted: [
+      "Talent evaluation platform",
+      "Hybrid semantic candidate search pipeline",
+      "AST-based code assessment workflow",
+      "LLM-powered technical benchmarking framework"
+    ],
+    impact: [
+      "Improved efficiency of candidate screening and assessment.",
+      "Enabled more intelligent matching of candidates to job requirements.",
+      "Reduced manual review effort in recruitment workflows."
+    ],
+    skillsLearned: [
+      "LLM evaluation design",
+      "Semantic retrieval systems",
+      "Code analysis workflows",
+      "ML system integration"
+    ],
+    keyAchievements: [
+      "Combined ML, search, and code analysis into one evaluation pipeline.",
+      "Built systems that improved both speed and accuracy of technical hiring."
+    ]
+  },
+  {
+    title: "Mathematical Modelling Intern",
+    company: "Palpx",
+    date: "May'26 – Jul'26",
+    description: "Engineered mathematical decision-support models for lead qualification, project prioritization, employee performance evaluation, and employee growth assessment using statistical modeling, predictive analytics, normalization techniques, and weighted scoring methodologies. Conducted research in Lambda Calculus to deepen expertise in computational theory, functional programming, and formal mathematical foundations for designing scalable analytical systems.",
+    technologies: ["Python", "Pandas", "NumPy", "Statistical Modeling", "Predictive Analytics", "Mathematical Modelling", "Lambda Calculus"],
+    responsibilities: [
+      "Designed mathematical frameworks for business decision support.",
+      "Built scoring systems for leads, projects, employees, and growth assessment.",
+      "Researched formal mathematical foundations relevant to scalable computation."
+    ],
+    projectsCompleted: [
+      "Lead Score Model",
+      "Project Score Model",
+      "Employee Score Model",
+      "Employee Growth Assessment Model"
+    ],
+    impact: [
+      "Created structured decision models for multiple business use cases.",
+      "Improved objectivity in prioritization and evaluation frameworks.",
+      "Helped convert qualitative judgments into measurable scoring systems."
+    ],
+    skillsLearned: [
+      "Weighted scoring design",
+      "Normalization techniques",
+      "Predictive analytics frameworks",
+      "Formal computational thinking"
+    ],
+    keyAchievements: [
+      "Built multiple real-world mathematical scoring models.",
+      "Connected theoretical mathematics with practical analytics systems."
+    ]
+  }
+],
+
   contacts: [
     { icon: "📧", label: "Gmail",     link: "mailto:maanmantavya.iitb@gmail.com" },
     { icon: "💼", label: "LinkedIn",  link: "https://www.linkedin.com/in/mantavya-maan-892304277" },
@@ -965,19 +1093,65 @@ const data = {
       </a>
     `).join("");
 
-  /* each job card is now a clickable link to the company website */
   document.getElementById("experience-list").innerHTML =
-    data.experience.map(e => `
-      <a class="job-card fade-up" href="${e.website}" target="_blank" rel="noopener">
-        <div class="job-dot"></div>
-        <div class="job-top">
-          <h3>${e.title}</h3>
-          <span class="job-date">${e.date}</span>
+  data.experience.map((e, idx) => `
+    <div class="job-card fade-up" data-job="${idx}">
+      <div class="job-dot"></div>
+      <div class="job-top">
+        <h3>${e.title}</h3>
+        <span class="job-date">${e.date}</span>
+      </div>
+      <div class="job-company" data-job-toggle="${idx}">
+        ${e.company}
+        <span class="job-chevron">▼</span>
+      </div>
+      <p>${e.description}</p>
+
+      <div class="job-details" id="job-details-${idx}">
+        <div class="job-detail-block">
+          <div class="job-detail-title">Technologies Used</div>
+          <ul class="job-detail-list">
+            ${e.technologies.map(item => `<li>${item}</li>`).join("")}
+          </ul>
         </div>
-        <div class="job-company">${e.company}</div>
-        <p>${e.description}</p>
-      </a>
-    `).join("");
+
+        <div class="job-detail-block">
+          <div class="job-detail-title">Responsibilities</div>
+          <ul class="job-detail-list">
+            ${e.responsibilities.map(item => `<li>${item}</li>`).join("")}
+          </ul>
+        </div>
+
+        <div class="job-detail-block">
+          <div class="job-detail-title">Projects Completed</div>
+          <ul class="job-detail-list">
+            ${e.projectsCompleted.map(item => `<li>${item}</li>`).join("")}
+          </ul>
+        </div>
+
+        <div class="job-detail-block">
+          <div class="job-detail-title">Impact</div>
+          <ul class="job-detail-list">
+            ${e.impact.map(item => `<li>${item}</li>`).join("")}
+          </ul>
+        </div>
+
+        <div class="job-detail-block">
+          <div class="job-detail-title">Skills Learned</div>
+          <ul class="job-detail-list">
+            ${e.skillsLearned.map(item => `<li>${item}</li>`).join("")}
+          </ul>
+        </div>
+
+        <div class="job-detail-block">
+          <div class="job-detail-title">Key Achievements</div>
+          <ul class="job-detail-list">
+            ${e.keyAchievements.map(item => `<li>${item}</li>`).join("")}
+          </ul>
+        </div>
+      </div>
+    </div>
+  `).join("");
 
   document.getElementById("contact-links").innerHTML =
     data.contacts.map(c => `
@@ -1081,6 +1255,13 @@ const navLinks  = document.getElementById("nav-links");
 hamburger.addEventListener("click", () => navLinks.classList.toggle("open"));
 navLinks.querySelectorAll("a").forEach(a =>
   a.addEventListener("click", () => navLinks.classList.remove("open")));
+  document.addEventListener("click", e => {
+  const toggle = e.target.closest("[data-job-toggle]");
+  if (!toggle) return;
+  const idx = toggle.dataset.jobToggle;
+  const card = document.querySelector(`.job-card[data-job="${idx}"]`);
+  card.classList.toggle("open");
+});
 
 /* ── CUSTOM CURSOR ────────────────────────────────────────── */
 const dot = document.querySelector(".cursor-dot");
