@@ -549,7 +549,11 @@
     text-decoration: none;
     display: block;
   }
-  .job-card:hover { border-color: var(--border-hover); transform: translateX(8px); box-shadow: 0 8px 30px rgba(124,106,247,0.15); }
+  .job-card:hover{
+    transform:translateY(-5px);
+    border-color:var(--border-hover);
+    box-shadow:0 12px 32px rgba(124,106,247,.18);
+}
   .job-dot {
     position: absolute; left: 12px; top: 32px;
     width: 18px; height: 18px; border-radius: 50%;
@@ -582,13 +586,15 @@
 .job-card p { color: var(--text2); font-size: 0.9rem; line-height: 1.75; }
 
 .job-details {
-  margin-top: 18px;
+    margin-top: 18px;
   padding-top: 18px;
   border-top: 1px solid var(--border);
-  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease;
 }
 .job-card.open .job-details {
-  display: block;
+  max-height: 1500px;
 }
 .job-detail-block {
   margin-bottom: 16px;
@@ -617,6 +623,9 @@
   color: var(--text2);
   font-size: 0.9rem;
   line-height: 1.75;
+}
+.job-toggle{
+    cursor:pointer;
 }
 
 
@@ -963,7 +972,7 @@ const data = {
     title: "Data Analyst Intern",
     company: "Fino Payment Bank",
     date: "Jun'25 – Jul'25",
-    description: "Built data-driven analytics solutions using SQL, Python, and Tableau to analyze financial transactions, customer behavior, and operational performance, developing interactive dashboards and actionable insights that supported strategic business decisions and process optimization.",
+    description: "Built analytics dashboards and business insights using Python, SQL, and Tableau for financial and customer data.",
     technologies: ["Python", "SQL", "Tableau", "Excel", "Pandas", "Matplotlib"],
     responsibilities: [
       "Analyzed customer transactions and operational performance data.",
@@ -996,7 +1005,7 @@ const data = {
     title: "Machine Learning & Data Engineering Intern",
     company: "Gradpipe",
     date: "Nov'25 – Dec'25",
-    description: "Developed an AI-powered talent evaluation platform by integrating vector databases, hybrid semantic search, AST-based code analysis, and LLM evaluation frameworks to enable intelligent candidate discovery, automate technical assessments, benchmark coding performance, and improve the accuracy and efficiency of recruitment workflows.",
+    description: "Built AI-driven recruitment systems using vector databases, hybrid search, AST analysis, and LLM evaluation.",
     technologies: ["Python", "Vector Databases", "LLMs", "Hybrid Search", "AST Analysis", "Data Engineering"],
     responsibilities: [
       "Built core components of an AI-powered recruitment evaluation platform.",
@@ -1029,7 +1038,7 @@ const data = {
     title: "Mathematical Modelling Intern",
     company: "Palpx",
     date: "May'26 – Jul'26",
-    description: "Engineered mathematical decision-support models for lead qualification, project prioritization, employee performance evaluation, and employee growth assessment using statistical modeling, predictive analytics, normalization techniques, and weighted scoring methodologies. Conducted research in Lambda Calculus to deepen expertise in computational theory, functional programming, and formal mathematical foundations for designing scalable analytical systems.",
+    description: "Developed mathematical scoring models for business decision-making using predictive analytics and statistical modelling.",
     technologies: ["Python", "Pandas", "NumPy", "Statistical Modeling", "Predictive Analytics", "Mathematical Modelling", "Lambda Calculus"],
     responsibilities: [
       "Designed mathematical frameworks for business decision support.",
@@ -1095,15 +1104,15 @@ const data = {
 
   document.getElementById("experience-list").innerHTML =
   data.experience.map((e, idx) => `
-    <div class="job-card fade-up" data-job="${idx}">
+    <div class="job-card fade-up job-toggle" data-job="${idx}">
       <div class="job-dot"></div>
       <div class="job-top">
         <h3>${e.title}</h3>
         <span class="job-date">${e.date}</span>
       </div>
-      <div class="job-company" data-job-toggle="${idx}">
-        ${e.company}
-        <span class="job-chevron">▼</span>
+      <div class="job-company">
+      ${e.company}
+      <span class="job-chevron">▼</span>
       </div>
       <p>${e.description}</p>
 
@@ -1255,12 +1264,12 @@ const navLinks  = document.getElementById("nav-links");
 hamburger.addEventListener("click", () => navLinks.classList.toggle("open"));
 navLinks.querySelectorAll("a").forEach(a =>
   a.addEventListener("click", () => navLinks.classList.remove("open")));
-  document.addEventListener("click", e => {
-  const toggle = e.target.closest("[data-job-toggle]");
-  if (!toggle) return;
-  const idx = toggle.dataset.jobToggle;
-  const card = document.querySelector(`.job-card[data-job="${idx}"]`);
-  card.classList.toggle("open");
+  document.querySelectorAll(".job-toggle").forEach(card=>{
+    card.addEventListener("click",function(){
+
+        this.classList.toggle("open");
+
+    });
 });
 
 /* ── CUSTOM CURSOR ────────────────────────────────────────── */
