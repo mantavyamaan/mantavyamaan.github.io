@@ -3,9 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mantavya Maan — Portfolio</title>
+<title>Mantavya Maan — Mathematics & AI Portfolio</title>
+
+<!-- ── SEO ──────────────────────────────────────────────── -->
+<meta name="description" content="Mantavya Maan — 4th year Mathematics undergraduate at IIT Bombay. Building AI-powered solutions through mathematics, machine learning, and data analytics.">
+<meta name="author" content="Mantavya Maan">
+<meta name="keywords" content="Mantavya Maan, IIT Bombay, Mathematics, Machine Learning, Data Analytics, AI, Portfolio, Data Scientist">
+
+<!-- Open Graph (for LinkedIn / GitHub / social shares) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mantavya Maan — Mathematics & AI Portfolio">
+<meta property="og:description" content="4th year Mathematics undergraduate at IIT Bombay. Building AI-powered solutions through mathematics and analytics.">
+<meta property="og:image" content="me.jpeg">
+<meta property="og:image:alt" content="Mantavya Maan">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mantavya Maan — Mathematics & AI Portfolio">
+<meta name="twitter:description" content="4th year Mathematics undergraduate at IIT Bombay. Building AI-powered solutions through mathematics and analytics.">
+<meta name="twitter:image" content="me.jpeg">
+
+<meta name="theme-color" content="#7c6af7">
+
+<!-- ── FAVICON (inline SVG, no extra file needed) ──────────── -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237c6af7'/%3E%3Cstop offset='1' stop-color='%23c084fc'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Arial, sans-serif' font-size='30' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EMM%3C/text%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
   /* ─── RESET & VARIABLES ─────────────────────────────────────── */
@@ -37,7 +62,7 @@
     font-family: 'Inter', system-ui, sans-serif;
     background: var(--bg);
     color: var(--text);
-    line-height: 1.65;
+    line-height: 1.75;
     overflow-x: hidden;
     cursor: none;
   }
@@ -54,6 +79,51 @@
     background: linear-gradient(var(--accent), var(--accent-2));
     border-radius: 4px;
   }
+
+  /* ─── PRELOADER ─────────────────────────────────────────────── */
+  #preloader {
+    position: fixed; inset: 0; z-index: 1000000;
+    background: var(--bg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 22px;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+  }
+  #preloader.hidden { opacity: 0; visibility: hidden; }
+  .preloader-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 2.6rem;
+    width: 92px; height: 92px; border-radius: 22px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: 0 0 40px var(--accent-glow);
+    animation: pl-pop 1.4s ease-in-out infinite;
+  }
+  @keyframes pl-pop { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+  .preloader-text {
+    font-size: 0.85rem; color: var(--text2); letter-spacing: 0.25em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .preloader-bar {
+    width: 160px; height: 3px; border-radius: 4px; overflow: hidden;
+    background: rgba(255,255,255,0.08);
+  }
+  .preloader-bar::after {
+    content: ''; display: block; height: 100%; width: 40%; border-radius: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+    animation: pl-slide 1.1s ease-in-out infinite;
+  }
+  @keyframes pl-slide {
+    0% { transform: translateX(-120%); }
+    100% { transform: translateX(320%); }
+  }
+
+  /* ─── PAGE ENTRANCE ─────────────────────────────────────────── */
+  #page {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+  #page.loaded { opacity: 1; }
 
   /* ─── SCROLL PROGRESS BAR ───────────────────────────────────── */
   #scroll-progress {
@@ -73,7 +143,7 @@
   }
   .cursor-dot {
     width: 8px; height: 8px; background: #fff;
-    transition: transform 0.08s ease;
+    transition: transform 0.08s ease, opacity 0.2s ease;
   }
   .cursor-ring {
     width: 38px; height: 38px;
@@ -86,6 +156,22 @@
     border-color: var(--accent-2);
     background: rgba(124,106,247,0.12);
   }
+  /* "View →" cursor label on project cards */
+  .cursor-ring.view-mode {
+    width: 70px; height: 70px;
+    border-color: var(--accent-2);
+    background: var(--accent);
+  }
+  .cursor-label {
+    position: fixed; top: 0; left: 0; z-index: 100001;
+    transform: translate(-50%, -50%);
+    color: #fff; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em;
+    pointer-events: none; opacity: 0;
+    transition: opacity 0.2s ease;
+    font-family: 'Space Grotesk', sans-serif;
+    white-space: nowrap;
+  }
+  .cursor-label.show { opacity: 1; }
 
   /* ─── CANVAS BACKGROUND ─────────────────────────────────────── */
   #particle-canvas {
@@ -162,14 +248,20 @@
   .nav-links a {
     color: var(--text2); font-size: 0.9rem; font-weight: 500;
     padding: 6px 14px; border-radius: 8px;
-    transition: color 0.2s, background 0.2s;
+    transition: color 0.2s;
     position: relative;
   }
-  .nav-links a:hover, .nav-links a.active { color: var(--text); background: rgba(255,255,255,0.05); }
-  .nav-links a.active::after {
+  /* smooth sliding underline */
+  .nav-links a:not(.nav-cta)::after {
     content: ''; position: absolute; left: 14px; right: 14px; bottom: 2px; height: 2px;
     background: var(--accent); border-radius: 2px;
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s ease;
   }
+  .nav-links a:not(.nav-cta):hover { color: var(--text); }
+  .nav-links a:not(.nav-cta):hover::after,
+  .nav-links a:not(.nav-cta).active::after { transform: scaleX(1); }
+  .nav-links a.active { color: var(--text); }
 
   .nav-cta {
     background: var(--accent) !important;
@@ -180,7 +272,6 @@
     transition: opacity 0.2s, transform 0.2s !important;
   }
   .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); background: var(--accent) !important; }
-  .nav-cta.active::after { display: none; }
 
   .hamburger { display: none; flex-direction: column; gap: 5px; padding: 4px; }
   .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
@@ -333,7 +424,7 @@
 
   /* ─── ABOUT ──────────────────────────────────────────────────── */
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-  .about-text-block p { color: var(--text2); font-size: 1rem; line-height: 1.8; margin-bottom: 18px; }
+  .about-text-block p { color: var(--text2); font-size: 1rem; line-height: 1.85; margin-bottom: 18px; }
   .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
   .stat-card {
@@ -369,7 +460,27 @@
   }
   .skill-pill.zap { animation: zap 0.5s ease; }
   @keyframes zap { 0% { transform: scale(1); } 40% { transform: scale(1.25); background: var(--accent); color: #fff; } 100% { transform: scale(1); } }
-  .skill-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.7; flex-shrink: 0; }
+  .skill-pill .emoji { font-size: 1rem; line-height: 1; flex-shrink: 0; }
+
+  /* skill description popup */
+  .skill-desc {
+    max-width: 620px; margin: 28px auto 0;
+    background: var(--card); border: 1px solid var(--border-hover);
+    border-radius: var(--radius); padding: 20px 24px;
+    text-align: center;
+    opacity: 0; transform: translateY(10px); height: 0; padding-top: 0; padding-bottom: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 12px 36px rgba(124,106,247,0.18);
+  }
+  .skill-desc.show {
+    opacity: 1; transform: translateY(0); height: auto; padding-top: 20px; padding-bottom: 20px;
+  }
+  .skill-desc .sd-title {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    font-size: 1.05rem; color: var(--accent-light); margin-bottom: 6px;
+  }
+  .skill-desc .sd-body { color: var(--text2); font-size: 0.92rem; line-height: 1.7; }
 
   /* ─── PROJECTS ───────────────────────────────────────────────── */
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
@@ -380,6 +491,7 @@
     transition: border-color 0.3s, box-shadow 0.3s;
     position: relative; overflow: hidden;
     transform-style: preserve-3d; will-change: transform;
+    color: inherit;
   }
   .project-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
@@ -404,12 +516,12 @@
     transition: transform 0.3s;
   }
   .project-card:hover .project-icon { transform: translateZ(30px) scale(1.1); }
-  .project-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+  .project-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--text); }
   .project-card p { color: var(--text2); font-size: 0.9rem; line-height: 1.7; margin-bottom: 18px; flex: 1; }
   .project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }
   .project-tag { background: var(--accent-dim); color: var(--accent-light); padding: 3px 10px; border-radius: 100px; font-size: 0.75rem; font-weight: 500; }
   .project-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font-size: 0.88rem; font-weight: 600; transition: gap 0.2s; }
-  .project-link:hover { gap: 10px; color: var(--accent-light); }
+  .project-card:hover .project-link { gap: 10px; color: var(--accent-light); }
 
   /* ─── EXPERIENCE ─────────────────────────────────────────────── */
   .timeline { position: relative; }
@@ -480,8 +592,6 @@
   /* ─── FOOTER ─────────────────────────────────────────────────── */
   footer { border-top: 1px solid var(--border); padding: 36px 0; text-align: center; position: relative; z-index: 1; }
   footer p { color: var(--text3); font-size: 0.82rem; }
-  footer .heart { color: #f87171; display: inline-block; animation: beat 1.2s ease infinite; }
-  @keyframes beat { 0%,100% { transform: scale(1); } 30% { transform: scale(1.3); } }
   footer a { color: var(--text3); transition: color 0.2s; }
   footer a:hover { color: var(--accent-light); }
 
@@ -492,7 +602,7 @@
   /* ─── RESPONSIVE ─────────────────────────────────────────────── */
   @media (hover: none), (pointer: coarse) {
     body { cursor: auto; }
-    .cursor-dot, .cursor-ring { display: none; }
+    .cursor-dot, .cursor-ring, .cursor-label { display: none; }
   }
   @media (max-width: 768px) {
     .nav-links { display: none; }
@@ -522,6 +632,14 @@
 </style>
 </head>
 <body>
+
+<!-- ── PRELOADER ──────────────────────────────────────────── -->
+<div id="preloader">
+  <div class="preloader-logo">MM</div>
+  <div class="preloader-bar"></div>
+  <div class="preloader-text">Loading</div>
+</div>
+
 <div id="scroll-progress"></div>
 <div class="grid-bg"></div>
 <div class="orb o1"></div>
@@ -531,6 +649,9 @@
 <canvas id="fx-canvas"></canvas>
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
+<div class="cursor-label" id="cursor-label">View →</div>
+
+<div id="page">
 
 <!-- ── NAV ──────────────────────────────────────────────── -->
 <nav id="navbar">
@@ -571,9 +692,13 @@
       </p>
 
       <div class="hero-btns">
-        <a class="btn btn-primary ripple-host" data-magnetic href="mantavya_resume.pdf" target="_blank">
+        <a class="btn btn-primary ripple-host" data-magnetic href="mantavya_resume.pdf" target="_blank" rel="noopener">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15V3m0 12-4-4m4 4 4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
           Download Resume
+        </a>
+        <a class="btn btn-outline ripple-host" data-magnetic href="mantavya_resume.pdf" target="_blank" rel="noopener">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          View Resume
         </a>
         <a class="btn btn-outline ripple-host" data-magnetic href="#contact">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -604,9 +729,12 @@
           I thrive on breaking down complex problems into elegant, scalable solutions —
           constantly exploring new technologies that bridge theory with real-world applications.
         </p>
-        <div style="margin-top: 28px;">
-          <a class="btn btn-primary ripple-host" data-magnetic href="mantavya_resume.pdf" target="_blank" style="font-size:0.88rem; padding: 10px 22px;">
-            View Full Resume
+        <div style="margin-top: 28px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn btn-primary ripple-host" data-magnetic href="mantavya_resume.pdf" target="_blank" rel="noopener" style="font-size:0.88rem; padding: 10px 22px;">
+            Download Resume
+          </a>
+          <a class="btn btn-outline ripple-host" data-magnetic href="mantavya_resume.pdf" target="_blank" rel="noopener" style="font-size:0.88rem; padding: 10px 22px;">
+            View Resume
           </a>
         </div>
       </div>
@@ -617,7 +745,7 @@
           <div class="stat-label">Internships Completed</div>
         </div>
         <div class="stat-card tilt">
-          <div class="stat-num">10+</div>
+          <div class="stat-num" data-count="10" data-suffix="+">0</div>
           <div class="stat-label">Real-Life Projects Built</div>
         </div>
         <div class="stat-card tilt">
@@ -639,9 +767,13 @@
     <div class="section-header centered fade-up">
       <div class="section-label">What I Use</div>
       <h2 class="section-title">Skills &amp; <span>Technologies</span></h2>
-      <p class="section-sub">A toolkit built through coursework, internships, and personal projects. (Tap a skill!)</p>
+      <p class="section-sub">A toolkit built through coursework, internships, and personal projects. (Tap a skill to learn what it is!)</p>
     </div>
     <div class="skills-grid fade-up" id="skills-list"></div>
+    <div class="skill-desc" id="skill-desc">
+      <div class="sd-title" id="sd-title"></div>
+      <div class="sd-body" id="sd-body"></div>
+    </div>
   </div>
 </section>
 
@@ -701,34 +833,46 @@
   </div>
 </footer>
 
+</div><!-- /#page -->
+
 <script>
-/* ── DATA (unchanged) ─────────────────────────────────────── */
+/* ── DATA ─────────────────────────────────────────────────── */
 const data = {
+  /* each skill now has an emoji icon + a short description */
   skills: [
-    "Python","C++","SQL","Data Analytics","Machine Learning",
-    "Mathematical Modelling","Statistical Analysis","Tableau",
-    "NumPy","Pandas","Git","Lambda Calculus"
+    { name: "Python",                 emoji: "🐍", desc: "A versatile, readable programming language widely used for data science, automation, machine learning, and backend development." },
+    { name: "C++",                    emoji: "⚙️", desc: "A high-performance, compiled language used for systems programming, competitive programming, and computationally heavy tasks." },
+    { name: "SQL",                    emoji: "🗄️", desc: "A query language for storing, retrieving, and manipulating structured data inside relational databases." },
+    { name: "Data Analytics",         emoji: "📈", desc: "The practice of examining raw data to uncover trends, patterns, and insights that drive better decisions." },
+    { name: "Machine Learning",       emoji: "🤖", desc: "Building algorithms that learn patterns from data to make predictions or decisions without being explicitly programmed." },
+    { name: "Mathematical Modelling", emoji: "📐", desc: "Translating real-world problems into mathematical equations to analyze, predict, and optimize outcomes." },
+    { name: "Statistical Analysis",   emoji: "📊", desc: "Using statistics to interpret data, test hypotheses, and quantify uncertainty in results." },
+    { name: "Tableau",                emoji: "📉", desc: "A business intelligence tool for creating interactive dashboards and visual data stories." },
+    { name: "NumPy",                  emoji: "🔢", desc: "A Python library for fast numerical computing with powerful support for arrays and matrices." },
+    { name: "Pandas",                 emoji: "🐼", desc: "A Python library for cleaning, transforming, and analyzing tabular data with ease." },
+    { name: "Git",                    emoji: "🌿", desc: "A version control system for tracking code changes and collaborating on projects." },
+    { name: "Lambda Calculus",        emoji: "λ",  desc: "A formal mathematical system that forms the theoretical foundation of functional programming and computation." }
   ],
   projects: [
     {
       icon: "🎯",
       title: "Lead Scoring Model",
       description: "Intelligent lead scoring framework that evaluates prospects using business, financial, engagement, and behavioral metrics to prioritize high-value leads and improve sales decision-making.",
-      tags: ["Python","Predictive Analytics","Business Intelligence","NumPy","Pandas","SciPy"],
+      tags: ["Python","NumPy","Pandas","SciPy","Predictive Analytics","Statistics","Business Intelligence"],
       link: "https://github.com/mantavyamaan/Lead_Score"
     },
     {
       icon: "📊",
       title: "Project Scoring Model",
       description: "Decision intelligence framework that quantitatively evaluates projects using strategic, financial, operational, and risk-based indicators for portfolio optimization.",
-      tags: ["Python","Decision Intelligence","Mathematical Modeling","Optimization","Analytics"],
+      tags: ["Python","NumPy","Pandas","Optimization","Mathematical Modeling","Decision Intelligence","Analytics"],
       link: "https://github.com/mantavyamaan/Project_Score"
     },
     {
       icon: "👥",
       title: "Employee Scoring Model",
       description: "Data-driven employee evaluation framework integrating multiple performance dimensions into a standardized score to support objective workforce assessment and talent management.",
-      tags: ["Python","HR Analytics","Statistical Modeling","Business Analytics","Performance Evaluation"],
+      tags: ["Python","Pandas","Statistics","Statistical Modeling","HR Analytics","Business Analytics","Performance Evaluation"],
       link: "https://github.com/mantavyamaan/Employee_Score"
     }
   ],
@@ -737,19 +881,19 @@ const data = {
       title: "Data Analyst Intern",
       company: "Fino Payment Bank",
       date: "Jun'25 – Jul'25",
-      description: "Built data-driven analytics solutions using SQL, Python, and Tableau to uncover financial trends, analyze customer behavior, and deliver interactive dashboards that enabled strategic business decision-making."
+      description: "Built data-driven analytics solutions using SQL, Python, and Tableau to analyze financial transactions, customer behavior, and operational performance, developing interactive dashboards and actionable insights that supported strategic business decisions and process optimization."
     },
     {
       title: "Machine Learning & Data Engineering Intern",
       company: "Gardpipe",
       date: "Nov'25 – Dec'25",
-      description: "Developed an AI-powered talent evaluation platform leveraging vector databases, hybrid search, AST-based code analysis, and LLM evaluation frameworks to deliver intelligent candidate discovery, automated technical scoring, and reliable benchmarking."
+      description: "Developed an AI-powered talent evaluation platform by integrating vector databases, hybrid semantic search, AST-based code analysis, and LLM evaluation frameworks to enable intelligent candidate discovery, automate technical assessments, benchmark coding performance, and improve the accuracy and efficiency of recruitment workflows."
     },
     {
       title: "Mathematical Modelling Intern",
       company: "Palpx",
       date: "May'26 – Jul'26",
-      description: "Developed intelligent business scoring models for lead qualification, project prioritization, and employee performance evaluation using mathematical modeling and predictive analytics. Deepened expertise in Lambda Calculus for computational theory and functional programming."
+      description: "Engineered mathematical decision-support models for lead qualification, project prioritization, employee performance evaluation, and employee growth assessment using statistical modeling, predictive analytics, normalization techniques, and weighted scoring methodologies. Conducted research in Lambda Calculus to deepen expertise in computational theory, functional programming, and formal mathematical foundations for designing scalable analytical systems."
     }
   ],
   contacts: [
@@ -763,11 +907,14 @@ const data = {
 /* ── BUILD ────────────────────────────────────────────────── */
 (function build() {
   document.getElementById("skills-list").innerHTML =
-    data.skills.map(s => `<div class="skill-pill"><span class="dot"></span>${s}</div>`).join("");
+    data.skills.map((s, idx) =>
+      `<div class="skill-pill" data-skill="${idx}"><span class="emoji">${s.emoji}</span>${s.name}</div>`
+    ).join("");
 
+  /* whole card is now a clickable link opening in a new tab */
   document.getElementById("projects-list").innerHTML =
     data.projects.map(p => `
-      <div class="project-card tilt fade-up">
+      <a class="project-card tilt fade-up" href="${p.link}" target="_blank" rel="noopener">
         <div class="glare"></div>
         <div class="project-icon">${p.icon}</div>
         <h3>${p.title}</h3>
@@ -775,11 +922,11 @@ const data = {
         <div class="project-tags">
           ${p.tags.map(t => `<span class="project-tag">${t}</span>`).join("")}
         </div>
-        <a class="project-link" href="${p.link}" target="_blank">
+        <span class="project-link">
           View on GitHub
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-        </a>
-      </div>
+        </span>
+      </a>
     `).join("");
 
   document.getElementById("experience-list").innerHTML =
@@ -797,14 +944,29 @@ const data = {
 
   document.getElementById("contact-links").innerHTML =
     data.contacts.map(c => `
-      <a class="contact-link ripple-host" href="${c.link}" target="_blank">
+      <a class="contact-link ripple-host" href="${c.link}" target="_blank" rel="noopener">
         <span class="icon">${c.icon}</span>${c.label}
       </a>
     `).join("");
 
   document.getElementById("footer-text").innerHTML =
-    `© ${new Date().getFullYear()} Mantavya Maan. Made with <span class="heart">♥</span> · <a href="mailto:maanmantavya.iitb@gmail.com">maanmantavya.iitb@gmail.com</a>`;
+    `© ${new Date().getFullYear()} · Designed &amp; Developed by Mantavya Maan · <a href="mailto:maanmantavya.iitb@gmail.com">maanmantavya.iitb@gmail.com</a>`;
 })();
+
+/* ── PRELOADER + PAGE ENTRANCE ────────────────────────────── */
+window.addEventListener("load", () => {
+  const pre = document.getElementById("preloader");
+  const page = document.getElementById("page");
+  setTimeout(() => {
+    pre.classList.add("hidden");
+    page.classList.add("loaded");
+  }, 900); // minimum loader time so it feels intentional
+});
+/* fallback in case 'load' is slow */
+setTimeout(() => {
+  document.getElementById("preloader").classList.add("hidden");
+  document.getElementById("page").classList.add("loaded");
+}, 3500);
 
 /* ── TYPING ANIMATION FOR ROLE ────────────────────────────── */
 (function typeRole() {
@@ -886,23 +1048,38 @@ navLinks.querySelectorAll("a").forEach(a =>
 /* ── CUSTOM CURSOR ────────────────────────────────────────── */
 const dot = document.querySelector(".cursor-dot");
 const ring = document.querySelector(".cursor-ring");
+const cursorLabel = document.getElementById("cursor-label");
 let mx = window.innerWidth/2, my = window.innerHeight/2;
 let rx = mx, ry = my;
 window.addEventListener("mousemove", e => {
   mx = e.clientX; my = e.clientY;
   dot.style.left = mx + "px"; dot.style.top = my + "px";
+  cursorLabel.style.left = mx + "px"; cursorLabel.style.top = my + "px";
 });
 (function ringLoop() {
   rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
   ring.style.left = rx + "px"; ring.style.top = ry + "px";
   requestAnimationFrame(ringLoop);
 })();
+
 document.addEventListener("mouseover", e => {
-  if (e.target.closest("a, button, .skill-pill, .stat-card, .project-card, [data-magnetic], #email-copy"))
+  /* project cards → show "View →" cursor */
+  if (e.target.closest(".project-card")) {
+    ring.classList.add("view-mode");
+    cursorLabel.classList.add("show");
+    dot.style.opacity = "0";
+    return;
+  }
+  if (e.target.closest("a, button, .skill-pill, .stat-card, [data-magnetic], #email-copy"))
     ring.classList.add("hovering");
 });
 document.addEventListener("mouseout", e => {
-  if (e.target.closest("a, button, .skill-pill, .stat-card, .project-card, [data-magnetic], #email-copy"))
+  if (e.target.closest(".project-card")) {
+    ring.classList.remove("view-mode");
+    cursorLabel.classList.remove("show");
+    dot.style.opacity = "1";
+  }
+  if (e.target.closest("a, button, .skill-pill, .stat-card, [data-magnetic], #email-copy"))
     ring.classList.remove("hovering");
 });
 
@@ -930,7 +1107,6 @@ function drawParticles() {
     p.x += p.vx; p.y += p.vy;
     if (p.x < 0 || p.x > pc.width) p.vx *= -1;
     if (p.y < 0 || p.y > pc.height) p.vy *= -1;
-    // gentle pull toward cursor
     const dx = pmx - p.x, dy = pmy - p.y, d = Math.hypot(dx,dy);
     if (d < 140) { p.x += dx*0.0015; p.y += dy*0.0015; }
     pctx.beginPath();
@@ -1036,13 +1212,33 @@ document.querySelectorAll("[data-magnetic]").forEach(btn => {
   btn.addEventListener("mouseleave", () => { btn.style.transform = ""; });
 });
 
-/* ── SKILL PILL CLICK = ZAP ───────────────────────────────── */
+/* ── SKILL PILL CLICK = ZAP + DESCRIPTION ─────────────────── */
+const skillDesc  = document.getElementById("skill-desc");
+const sdTitle    = document.getElementById("sd-title");
+const sdBody     = document.getElementById("sd-body");
+let activeSkill  = null;
+
 document.addEventListener("click", e => {
   const pill = e.target.closest(".skill-pill");
   if (!pill) return;
+
+  /* zap animation */
   pill.classList.remove("zap");
-  void pill.offsetWidth; // restart animation
+  void pill.offsetWidth;
   pill.classList.add("zap");
+
+  /* show / toggle description */
+  const idx = +pill.dataset.skill;
+  const skill = data.skills[idx];
+  if (activeSkill === idx) {
+    skillDesc.classList.remove("show");
+    activeSkill = null;
+  } else {
+    sdTitle.textContent = `${skill.emoji} ${skill.name}`;
+    sdBody.textContent = skill.desc;
+    skillDesc.classList.add("show");
+    activeSkill = idx;
+  }
 });
 
 /* ── EMAIL CLICK TO COPY ──────────────────────────────────── */
