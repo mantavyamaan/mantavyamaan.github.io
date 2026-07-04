@@ -32,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
+<style>
   /* ─── RESET & VARIABLES ─────────────────────────────────────── */
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -532,6 +532,9 @@
   .project-tag { background: var(--accent-dim); color: var(--accent-light); padding: 3px 10px; border-radius: 100px; font-size: 0.75rem; font-weight: 500; }
   .project-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font-size: 0.88rem; font-weight: 600; transition: gap 0.2s; }
   .project-card:hover .project-link { gap: 10px; color: var(--accent-light); }
+  .project-links { display: flex; gap: 20px; flex-wrap: wrap; }
+  .project-link-demo { color: var(--accent-3); }
+  .project-card:hover .project-link-demo { color: var(--accent-3); }
 
   /* ─── EXPERIENCE ─────────────────────────────────────────────── */
   .timeline { position: relative; }
@@ -929,7 +932,7 @@
 <script>
 /* ── DATA ─────────────────────────────────────────────────── */
 const data = {
-  /* each skill now has an emoji icon + a short description */
+  /* each skill now has a short description */
   skills: [
     { name: "Python",                 desc: "A versatile, readable programming language widely used for data science, automation, machine learning, and backend development." },
     { name: "C++",                    desc: "A high-performance, compiled language used for systems programming, competitive programming, and computationally heavy tasks." },
@@ -946,7 +949,6 @@ const data = {
   ],
   projects: [
     {
-
   title: "ATLAS Router",
   description: "Intelligent LLM routing engine leveraging Bayesian inference, Thompson sampling, and utility optimization to select, orchestrate, and validate AI models for cost-efficient, confidence-aware task execution.",
   tags: [
@@ -958,7 +960,7 @@ const data = {
     "Model Routing",
     "AI Orchestration"
   ],
-  link: "https://github.com/mantavyamaan/ATLAS_Router"
+  link: "https://github.com/mantavyamaan/ATLAS_Router",
 },
     {
       title: "Lead Scoring Model",
@@ -1122,25 +1124,31 @@ const data = {
 (function build() {
   document.getElementById("skills-list").innerHTML =
     data.skills.map((s, idx) =>
-      `<div class="skill-pill" data-skill="${idx}"><span class="emoji">${s.emoji}</span>${s.name}</div>`
+      `<div class="skill-pill" data-skill="${idx}">${s.emoji ? `<span class="emoji">${s.emoji}</span>` : ''}${s.name}</div>`
     ).join("");
 
-  /* whole card is now a clickable link opening in a new tab */
   document.getElementById("projects-list").innerHTML =
     data.projects.map(p => `
-      <a class="project-card tilt fade-up" href="${p.link}" target="_blank" rel="noopener">
+      <div class="project-card tilt fade-up">
         <div class="glare"></div>
-        <div class="project-icon">${p.icon}</div>
+        ${p.icon ? `<div class="project-icon">${p.icon}</div>` : ''}
         <h3>${p.title}</h3>
         <p>${p.description}</p>
         <div class="project-tags">
           ${p.tags.map(t => `<span class="project-tag">${t}</span>`).join("")}
         </div>
-        <span class="project-link">
-          View on GitHub
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-        </span>
-      </a>
+        <div class="project-links">
+          <a class="project-link" href="${p.link}" target="_blank" rel="noopener">
+            View on GitHub
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </a>
+          ${p.demo ? `
+          <a class="project-link project-link-demo" href="${p.demo}" target="_blank" rel="noopener">
+            Access the Model
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </a>` : ''}
+        </div>
+      </div>
     `).join("");
 
   document.getElementById("experience-list").innerHTML =
@@ -1203,10 +1211,11 @@ const data = {
     </div>
   `).join("");
 
+  /* ── FIX: Safely check for c.icon in the contacts map ── */
   document.getElementById("contact-links").innerHTML =
     data.contacts.map(c => `
       <a class="contact-link ripple-host" href="${c.link}" target="_blank" rel="noopener">
-        <span class="icon">${c.icon}</span>${c.label}
+        ${c.icon ? `<span class="icon">${c.icon}</span>` : ''}${c.label}
       </a>
     `).join("");
 
@@ -1332,7 +1341,7 @@ window.addEventListener("mousemove", e => {
 
 document.addEventListener("mouseover", e => {
   /* project cards → show "View →" cursor */
-  if (e.target.closest(".project-card")) {
+  if (e.target.closest(".project-link")) {
     ring.classList.add("view-mode");
     cursorLabel.classList.add("show");
     dot.style.opacity = "0";
@@ -1342,7 +1351,7 @@ document.addEventListener("mouseover", e => {
     ring.classList.add("hovering");
 });
 document.addEventListener("mouseout", e => {
-  if (e.target.closest(".project-card")) {
+  if (e.target.closest(".project-link")) {
     ring.classList.remove("view-mode");
     cursorLabel.classList.remove("show");
     dot.style.opacity = "1";
@@ -1502,7 +1511,7 @@ document.addEventListener("click", e => {
     skillDesc.classList.remove("show");
     activeSkill = null;
   } else {
-    sdTitle.textContent = `${skill.emoji} ${skill.name}`;
+    sdTitle.textContent = skill.emoji ? `${skill.emoji} ${skill.name}` : skill.name;
     sdBody.textContent = skill.desc;
     skillDesc.classList.add("show");
     activeSkill = idx;
