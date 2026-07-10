@@ -12,17 +12,17 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mantavya Maan — Mathematics & AI Portfolio">
 <meta property="og:description" content="4th year Mathematics undergraduate at IIT Bombay. Building AI-powered solutions through mathematics and analytics.">
-<meta property="og:image" content="me.jpeg">
+<meta property="og:image" content="me.jpg">
 <meta property="og:image:alt" content="Mantavya Maan">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mantavya Maan — Mathematics & AI Portfolio">
 <meta name="twitter:description" content="4th year Mathematics undergraduate at IIT Bombay. Building AI-powered solutions through mathematics and analytics.">
-<meta name="twitter:image" content="me.jpeg">
+<meta name="twitter:image" content="me.jpg">
 
-<meta name="theme-color" content="#7c6af7">
+<meta name="theme-color" content="#050505">
 
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237c6af7'/%3E%3Cstop offset='1' stop-color='%23c084fc'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Arial, sans-serif' font-size='30' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EMM%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f3f4f6'/%3E%3Cstop offset='1' stop-color='%23d1d5db'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Arial, sans-serif' font-size='30' font-weight='700' fill='%23000000' text-anchor='middle'%3EMM%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,21 +33,21 @@
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --accent:       #7c6af7;
-    --accent-light: #a695ff;
-    --accent-2:     #c084fc;
-    --accent-3:     #22d3ee;
-    --accent-dim:   rgba(124, 106, 247, 0.15);
-    --accent-glow:  rgba(124, 106, 247, 0.35);
-    --bg:           #060710;
-    --bg2:          #0d1018;
-    --card:         #111420;
-    --card2:        #161925;
-    --border:       rgba(255,255,255,0.08);
-    --border-hover: rgba(124,106,247,0.55);
-    --text:         #eeeef0;
-    --text2:        #b0b4be;
-    --text3:        #6b7280;
+    --accent:       #f3f4f6;
+    --accent-light: #ffffff;
+    --accent-2:     #d1d5db;
+    --accent-3:     #9ca3af;
+    --accent-dim:   rgba(255, 255, 255, 0.1);
+    --accent-glow:  rgba(255, 255, 255, 0.2);
+    --bg:           #050505;
+    --bg2:          #0a0a0a;
+    --card:         #0f1115;
+    --card2:        #161a20;
+    --border:       rgba(255,255,255,0.06);
+    --border-hover: rgba(255,255,255,0.3);
+    --text:         #f9fafb;
+    --text2:        #a1a1aa;
+    --text3:        #71717a;
     --radius:       14px;
     --radius-lg:    20px;
   }
@@ -60,7 +60,7 @@
     color: var(--text);
     line-height: 1.75;
     overflow-x: hidden;
-    cursor: url('data:image/svg+xml;utf8,<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 2L22 11.5L13.5 13.5L9 22L4 2Z" fill="%23ffffff" stroke="%237c6af7" stroke-width="2" stroke-linejoin="round"/></svg>'), auto;
+    cursor: url('data:image/svg+xml;utf8,<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 2L22 11.5L13.5 13.5L9 22L4 2Z" fill="%23ffffff" stroke="%23333333" stroke-width="2" stroke-linejoin="round"/></svg>'), auto;
   }
 
   a { color: var(--accent); text-decoration: none; }
@@ -97,7 +97,7 @@
     font-weight: 700; font-size: 2.6rem;
     width: 92px; height: 92px; border-radius: 22px;
     display: flex; align-items: center; justify-content: center;
-    color: #fff;
+    color: #000;
     background: linear-gradient(135deg, var(--accent), var(--accent-2));
     box-shadow: 0 0 40px var(--accent-glow);
     animation: pl-pop 1.4s ease-in-out infinite;
@@ -232,7 +232,7 @@
 
   .nav-cta {
     background: var(--accent) !important;
-    color: #fff !important;
+    color: #000 !important;
     padding: 7px 18px !important;
     border-radius: 8px !important;
     font-weight: 600 !important;
@@ -293,39 +293,37 @@
   }
 
   .avatar-wrap {
-    position: relative; width: 148px; height: 148px; margin-bottom: 28px;
-    transition: transform 0.3s ease;
+    position: relative; width: 180px; height: 180px; margin-bottom: 28px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+    border-radius: 24px;
   }
-  .avatar-wrap:hover { transform: scale(1.06) rotate(-3deg); }
+  .avatar-wrap:hover { transform: scale(1.04) translateY(-4px); box-shadow: 0 16px 32px rgba(255,255,255,0.08); }
   .avatar-wrap::before {
     content: '';
-    position: absolute; inset: -4px; border-radius: 50%;
-    background: conic-gradient(from 0deg, var(--accent), var(--accent-light), var(--accent-2), var(--accent-3), var(--accent));
-    animation: spin 4s linear infinite;
+    position: absolute; inset: -2px; border-radius: 26px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.05), rgba(255,255,255,0.2));
+    z-index: 0;
   }
   .avatar-wrap::after {
     content: '';
-    position: absolute; inset: -8px; border-radius: 50%;
-    background: radial-gradient(circle, var(--accent-glow), transparent 70%);
-    animation: pulse-ring 2.5s ease-in-out infinite;
+    position: absolute; inset: -1px; border-radius: 25px;
+    background: var(--bg);
+    z-index: 0;
   }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  @keyframes pulse-ring { 0%,100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
 
   .avatar-wrap img {
     position: relative; z-index: 1;
-    width: 140px; height: 140px; border-radius: 50%;
-    object-fit: cover; border: 3px solid var(--bg);
-    top: 4px; left: 4px;
+    width: 100%; height: 100%; border-radius: 24px;
+    object-fit: cover;
   }
 
   .status-badge {
     display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(22, 25, 37, 0.6); 
+    background: rgba(255, 255, 255, 0.05); 
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--border);
-    padding: 6px 14px; border-radius: 100px;
-    font-size: 0.8rem; color: var(--text2);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 6px 16px; border-radius: 100px;
+    font-size: 0.85rem; color: #fff; font-weight: 500;
     margin-bottom: 22px;
     transition: border-color 0.3s, transform 0.3s;
   }
@@ -369,10 +367,10 @@
     will-change: transform;
   }
   .btn-primary {
-    background: linear-gradient(135deg, var(--accent), #9f7aea);
-    color: #fff; box-shadow: 0 4px 20px var(--accent-glow);
+    background: linear-gradient(135deg, #ffffff, #d1d5db);
+    color: #000; box-shadow: 0 4px 20px var(--accent-glow);
   }
-  .btn-primary:hover { box-shadow: 0 8px 30px var(--accent-glow); color: #fff; }
+  .btn-primary:hover { box-shadow: 0 8px 30px var(--accent-glow); color: #000; }
   .btn-outline { background: transparent; border: 1px solid var(--border-hover); color: var(--accent-light); }
   .btn-outline:hover { background: var(--accent-dim); color: var(--accent-light); }
 
@@ -417,19 +415,24 @@
   .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
   .stat-card {
-    background: rgba(17, 20, 32, 0.4); 
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255,255,255,0.08);
     border-radius: var(--radius);
     padding: 22px 20px;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     transform-style: preserve-3d;
     will-change: transform;
     color: inherit;
     text-decoration: none;
     display: block;
   }
-  .stat-card:hover { border-color: var(--border-hover); box-shadow: 0 12px 30px rgba(124,106,247,0.18); }
+  .stat-card:hover { 
+    border-color: rgba(255,255,255,0.2); 
+    box-shadow: 0 16px 40px rgba(0,0,0,0.8), 0 0 20px rgba(255,255,255,0.03); 
+    transform: translateY(-4px); 
+    background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+  }
   .stat-card .stat-num {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 2rem; font-weight: 700;
@@ -441,35 +444,35 @@
   .skills-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
   .skill-pill {
     display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(17, 20, 32, 0.6);
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255,255,255,0.08);
     color: var(--text2); padding: 10px 20px; border-radius: 100px;
-    font-size: 0.88rem; font-weight: 500;
-    transition: border-color 0.25s, color 0.25s, transform 0.25s, background 0.25s, box-shadow 0.25s;
+    font-size: 0.88rem; font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
   }
   .skill-pill:hover {
-    border-color: var(--accent); color: var(--accent-light);
-    background: var(--accent-dim); transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 8px 22px rgba(124,106,247,0.25);
+    border-color: rgba(255,255,255,0.3); color: #fff;
+    background: rgba(255,255,255,0.08); transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 22px rgba(255,255,255,0.05);
   }
-  .skill-pill.zap { animation: zap 0.5s ease; }
-  @keyframes zap { 0% { transform: scale(1); } 40% { transform: scale(1.25); background: var(--accent); color: #fff; } 100% { transform: scale(1); } }
+  .skill-pill.zap { animation: zap 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  @keyframes zap { 0% { transform: scale(1); } 40% { transform: scale(1.15); background: #fff; color: #000; border-color: #fff; } 100% { transform: scale(1); } }
   .skill-pill .emoji { font-size: 1rem; line-height: 1; flex-shrink: 0; }
 
   /* skill description popup */
   .skill-desc {
     max-width: 620px; margin: 28px auto 0;
-    background: rgba(17, 20, 32, 0.7);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--border-hover);
+    background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: var(--radius); padding: 20px 24px;
     text-align: center;
     opacity: 0; transform: translateY(10px); height: 0; padding-top: 0; padding-bottom: 0;
     overflow: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 12px 36px rgba(124,106,247,0.18);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
   }
   .skill-desc.show {
     opacity: 1; transform: translateY(0); height: auto; padding-top: 20px; padding-bottom: 20px;
@@ -483,50 +486,57 @@
   /* ─── PROJECTS (GLASSMORPHISM) ───────────────────────────────── */
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
   .project-card {
-    background: rgba(17, 20, 32, 0.4); 
-    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: 28px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-lg); padding: 32px;
     display: flex; flex-direction: column;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative; overflow: hidden;
     transform-style: preserve-3d; will-change: transform;
     color: inherit;
   }
   .project-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
-    transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    opacity: 0; transition: opacity 0.4s ease;
   }
   /* moving spotlight that follows the mouse */
   .project-card .glare {
     position: absolute; inset: 0; pointer-events: none; opacity: 0;
-    background: radial-gradient(300px circle at var(--mx,50%) var(--my,50%), rgba(124,106,247,0.18), transparent 60%);
-    transition: opacity 0.3s;
+    background: radial-gradient(400px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.08), transparent 50%);
+    transition: opacity 0.4s;
+    z-index: 1;
   }
   .project-card:hover {
-    border-color: var(--border-hover);
-    box-shadow: 0 20px 50px rgba(124,106,247,0.25);
-    transform: translateY(-6px);
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(255,255,255,0.03);
+    transform: translateY(-8px) scale(1.01);
+    background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
   }
-  .project-card:hover::before { transform: scaleX(1); }
+  .project-card:hover::before { opacity: 1; }
   .project-card:hover .glare { opacity: 1; }
 
   .project-icon {
-    width: 44px; height: 44px; border-radius: 10px;
-    background: var(--accent-dim); border: 1px solid var(--accent-glow);
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 18px; font-size: 1.2rem;
-    transition: transform 0.3s;
+    margin-bottom: 22px; font-size: 1.3rem; color: #fff;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s, box-shadow 0.4s;
+    position: relative; z-index: 2;
   }
-  .project-card:hover .project-icon { transform: translateZ(30px) scale(1.1); }
-  .project-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--text); }
-  .project-card p { color: var(--text2); font-size: 0.9rem; line-height: 1.7; margin-bottom: 18px; }
-  .project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }
-  .project-tag { background: var(--accent-dim); color: var(--accent-light); padding: 3px 10px; border-radius: 100px; font-size: 0.75rem; font-weight: 500; }
-  .project-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font-size: 0.88rem; font-weight: 600; transition: gap 0.2s; }
-  .project-card:hover .project-link { gap: 10px; color: var(--accent-light); }
-  .project-links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: auto; }
+  .project-card:hover .project-icon { 
+    transform: translateZ(40px) scale(1.15) rotate(-5deg); 
+    background: #fff; color: #000;
+    box-shadow: 0 10px 20px rgba(255,255,255,0.2);
+  }
+  .project-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: #fff; position: relative; z-index: 2; }
+  .project-card p { color: var(--text2); font-size: 0.95rem; line-height: 1.7; margin-bottom: 24px; position: relative; z-index: 2; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; position: relative; z-index: 2; }
+  .project-tag { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.05); color: #fff; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.03em; }
+  .project-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text2); font-size: 0.9rem; font-weight: 600; transition: all 0.3s; position: relative; z-index: 2; }
+  .project-card:hover .project-link { gap: 10px; color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+  .project-links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: auto; position: relative; z-index: 2; }
   .project-link-demo { color: var(--accent-3); }
   .project-card:hover .project-link-demo { color: var(--accent-3); }
 
@@ -534,39 +544,40 @@
   .timeline { position: relative; }
   .timeline::before {
     content: ''; position: absolute; left: 20px; top: 0; bottom: 0;
-    width: 2px; background: linear-gradient(to bottom, var(--accent), transparent);
-    opacity: 0.35;
+    width: 2px; background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
+    opacity: 0.8;
   }
   .job-card {
-    background: rgba(17, 20, 32, 0.4); 
-    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
     border-radius: var(--radius-lg); padding: 28px 28px 28px 68px;
     margin-bottom: 22px; position: relative;
-    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     color: inherit;
     text-decoration: none;
     display: block;
   }
   .job-card:hover{
-    transform:translateY(-5px);
-    border-color:var(--border-hover);
-    box-shadow:0 12px 32px rgba(124,106,247,.18);
+    transform:translateY(-5px) scale(1.01);
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 30px rgba(255,255,255,0.03);
+    background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
   }
   .job-dot {
     position: absolute; left: 12px; top: 32px;
     width: 18px; height: 18px; border-radius: 50%;
-    background: var(--accent); border: 3px solid var(--bg);
-    box-shadow: 0 0 12px var(--accent-glow);
+    background: #fff; border: 3px solid var(--bg);
+    box-shadow: 0 0 12px rgba(255,255,255,0.3);
   }
-  .job-card:hover .job-dot { animation: dot-pulse 1s ease infinite; }
-  @keyframes dot-pulse { 0%,100% { box-shadow: 0 0 12px var(--accent-glow); } 50% { box-shadow: 0 0 22px var(--accent), 0 0 8px #fff; } }
+  .job-card:hover .job-dot { animation: dot-pulse 1.5s ease infinite; }
+  @keyframes dot-pulse { 0%,100% { box-shadow: 0 0 12px rgba(255,255,255,0.3); } 50% { box-shadow: 0 0 22px #fff, 0 0 8px rgba(255,255,255,0.8); } }
   .job-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
-  .job-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; }
-  .job-date { background: var(--accent-dim); color: var(--accent-light); padding: 3px 12px; border-radius: 100px; font-size: 0.78rem; font-weight: 500; white-space: nowrap; }
+  .job-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; }
+  .job-date { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.05); color: #fff; padding: 3px 12px; border-radius: 100px; font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
   .job-company {
-  color: var(--accent);
-  font-size: 0.92rem;
+  color: var(--text2);
+  font-size: 0.95rem;
   font-weight: 600;
   margin-bottom: 10px;
   display: inline-flex;
@@ -631,25 +642,27 @@
   /* ─── CONTACT ────────────────────────────────────────────────── */
   .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
   .contact-card { 
-    background: rgba(17, 20, 32, 0.4); 
-    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); 
-    border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; 
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08); 
+    border-radius: var(--radius-lg); padding: 32px; 
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
   }
   .contact-card p { color: var(--text2); font-size: 0.95rem; line-height: 1.8; margin-bottom: 28px; }
   .contact-links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .contact-link {
     display: flex; align-items: center; justify-content: center; gap: 10px;
-    background: rgba(22, 25, 37, 0.6); border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.08);
     padding: 14px 16px; border-radius: var(--radius);
-    color: var(--text2); font-size: 0.88rem; font-weight: 500;
-    transition: border-color 0.25s, color 0.25s, transform 0.25s, background 0.25s, box-shadow 0.25s;
+    color: var(--text2); font-size: 0.88rem; font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .contact-link:hover {
-    border-color: var(--accent); color: var(--accent-light);
-    background: var(--accent-dim); transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(124,106,247,0.2);
+    border-color: rgba(255,255,255,0.3); color: #fff;
+    background: rgba(255,255,255,0.08); transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(255,255,255,0.05);
   }
-  .contact-link .icon { display: flex; align-items: center; font-size: 1.1rem; flex-shrink: 0; }
+  .contact-link .icon { display: flex; align-items: center; font-size: 1.1rem; flex-shrink: 0; color: #fff; }
 
   .contact-email-block { 
     display: flex;
@@ -785,7 +798,7 @@
     <div class="hero-inner">
       <div class="avatar-wrap">
         <img
-    src="me.jpeg"
+    src="me.jpg"
     alt="Mantavya Maan"
     loading="eager"
     decoding="async">
@@ -998,9 +1011,9 @@ const data = {
       demo: "https://mantavyamaan.github.io/Employee_Score/employee-score-console.html"
     },
     {
-  title: "Employee Growth Score Model",
+  title: "Growth Score Model",
   description: "Cumulative employee growth assessment framework using additive contribution scoring, achievement-based evaluation, and role-specific performance pillars to measure long-term workforce growth and development.",
-  tags: [ "Python", "Statistical Modeling", "HR Analytics", "Performance Analytics", "Workforce Analytics", "Mathematical Modeling", "Decision Intelligence"],
+  tags: [ "Python", "Statistical Modeling", "Performance Analytics", "Workforce Analytics", "Mathematical Modeling", "Decision Intelligence"],
   link: "https://github.com/mantavyamaan/Growth_Model",
   demo: "https://mantavyamaan.github.io/Growth_Model/growth-model-console.html"
 }
@@ -1325,50 +1338,61 @@ navLinks.querySelectorAll("a").forEach(a =>
 /* ── PARTICLE NETWORK BACKGROUND ──────────────────────────── */
 const pc = document.getElementById("particle-canvas");
 const pctx = pc.getContext("2d");
-let particles = [];
-function resizePC() { pc.width = innerWidth; pc.height = innerHeight; }
+let time = 0;
+let mx = innerWidth / 2;
+let my = innerHeight / 2;
+
+function resizePC() {
+  pc.width = innerWidth;
+  pc.height = innerHeight;
+}
 resizePC();
 window.addEventListener("resize", resizePC);
-function initParticles() {
-  const count = Math.min(60, Math.floor(innerWidth / 22));
-  particles = Array.from({length: count}, () => ({
-    x: Math.random()*pc.width, y: Math.random()*pc.height,
-    vx: (Math.random()-0.5)*0.4, vy: (Math.random()-0.5)*0.4,
-    r: Math.random()*1.8+0.6
-  }));
-}
-initParticles();
-let pmx = -999, pmy = -999;
-window.addEventListener("mousemove", e => { pmx = e.clientX; pmy = e.clientY; });
-function drawParticles() {
-  pctx.clearRect(0,0,pc.width,pc.height);
-  for (const p of particles) {
-    p.x += p.vx; p.y += p.vy;
-    if (p.x < 0 || p.x > pc.width) p.vx *= -1;
-    if (p.y < 0 || p.y > pc.height) p.vy *= -1;
-    const dx = pmx - p.x, dy = pmy - p.y, d = Math.hypot(dx,dy);
-    if (d < 140) { p.x += dx*0.0015; p.y += dy*0.0015; }
+window.addEventListener("mousemove", e => {
+  // Smoothly interpolate mouse for fluid reaction
+  mx += (e.clientX - mx) * 0.05;
+  my += (e.clientY - my) * 0.05;
+});
+
+function drawWaves() {
+  // Dark cinematic trail effect
+  pctx.fillStyle = "rgba(5, 5, 5, 0.15)";
+  pctx.fillRect(0, 0, pc.width, pc.height);
+  
+  time += 0.004;
+  const numLines = 8;
+  
+  const targetX = mx / pc.width;
+  const targetY = my / pc.height;
+  
+  for (let i = 0; i < numLines; i++) {
     pctx.beginPath();
-    pctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-    pctx.fillStyle = "rgba(166,149,255,0.6)";
-    pctx.fill();
-  }
-  for (let i=0;i<particles.length;i++) {
-    for (let j=i+1;j<particles.length;j++) {
-      const a=particles[i], b=particles[j];
-      const dist = Math.hypot(a.x-b.x, a.y-b.y);
-      if (dist < 120) {
-        pctx.beginPath();
-        pctx.moveTo(a.x,a.y); pctx.lineTo(b.x,b.y);
-        pctx.strokeStyle = `rgba(124,106,247,${(1 - dist/120)*0.18})`;
-        pctx.lineWidth = 0.6;
-        pctx.stroke();
-      }
+    pctx.lineWidth = 1;
+    // Elegant, icy-silver abstract curves
+    pctx.strokeStyle = `rgba(226, 232, 240, ${0.03 + (i * 0.015)})`;
+    
+    for (let x = 0; x <= pc.width; x += 20) {
+      // Abstract mathematical equation for dynamic topological mesh
+      const freq1 = 0.001 + (i * 0.0003) + (targetX * 0.0015);
+      const freq2 = 0.0015 + (targetY * 0.001);
+      
+      const y1 = Math.sin(x * freq1 + time + i) * 200;
+      const y2 = Math.cos(x * freq2 - time * 1.2) * 150;
+      
+      const baseY = pc.height / 2;
+      // Add slight vertical shift based on line index
+      const shift = (i - numLines/2) * 30; 
+      
+      const y = baseY + y1 + y2 + shift;
+      
+      if (x === 0) pctx.moveTo(x, y);
+      else pctx.lineTo(x, y);
     }
+    pctx.stroke();
   }
-  requestAnimationFrame(drawParticles);
+  requestAnimationFrame(drawWaves);
 }
-drawParticles();
+drawWaves();
 
 
 
