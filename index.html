@@ -60,7 +60,7 @@
     color: var(--text);
     line-height: 1.75;
     overflow-x: hidden;
-    cursor: none;
+    cursor: url('data:image/svg+xml;utf8,<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 2L22 11.5L13.5 13.5L9 22L4 2Z" fill="%23ffffff" stroke="%237c6af7" stroke-width="2" stroke-linejoin="round"/></svg>'), auto;
   }
 
   a { color: var(--accent); text-decoration: none; }
@@ -137,44 +137,7 @@
   }
 
   /* ─── CUSTOM CURSOR ─────────────────────────────────────────── */
-  .cursor-dot, .cursor-ring {
-    position: fixed; top: 0; left: 0;
-    border-radius: 50%;
-    pointer-events: none; z-index: 100000;
-    transform: translate(-50%, -50%);
-    mix-blend-mode: difference;
-  }
-  .cursor-dot {
-    width: 8px; height: 8px; background: #fff;
-    transition: transform 0.08s ease, opacity 0.2s ease;
-  }
-  .cursor-ring {
-    width: 38px; height: 38px;
-    border: 2px solid var(--accent-light);
-    transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-    mix-blend-mode: normal;
-  }
-  .cursor-ring.hovering {
-    width: 60px; height: 60px;
-    border-color: var(--accent-2);
-    background: rgba(124,106,247,0.12);
-  }
-  /* "View →" cursor label on project cards */
-  .cursor-ring.view-mode {
-    width: 70px; height: 70px;
-    border-color: var(--accent-2);
-    background: var(--accent);
-  }
-  .cursor-label {
-    position: fixed; top: 0; left: 0; z-index: 100001;
-    transform: translate(-50%, -50%);
-    color: #fff; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em;
-    pointer-events: none; opacity: 0;
-    transition: opacity 0.2s ease;
-    font-family: 'Space Grotesk', sans-serif;
-    white-space: nowrap;
-  }
-  .cursor-label.show { opacity: 1; }
+
 
   /* ─── CANVAS BACKGROUND ─────────────────────────────────────── */
   #particle-canvas {
@@ -794,10 +757,6 @@
 <div class="orb o2"></div>
 <div class="orb o3"></div>
 <canvas id="particle-canvas"></canvas>
-<canvas id="fx-canvas"></canvas>
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
-<div class="cursor-label" id="cursor-label">View →</div>
 
 <div id="page">
 
@@ -846,6 +805,10 @@
       </p>
 
       <div class="hero-btns">
+        <a class="btn btn-primary ripple-host" data-magnetic href="mantavya_resume.pdf" download="Mantavya_Maan_Resume.pdf">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download Resume
+        </a>
         <a class="btn btn-outline ripple-host" data-magnetic href="mantavya_resume.pdf" target="_blank" rel="noopener">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           View Resume
@@ -877,6 +840,10 @@
           I focus on bridging the gap between theoretical mathematics and real-world software engineering, transforming complex data into actionable business intelligence and scalable AI systems.
         </p>
         <div style="margin-top: 28px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn btn-primary ripple-host" data-magnetic href="mantavya_resume.pdf" download="Mantavya_Maan_Resume.pdf" style="font-size:0.88rem; padding: 10px 22px;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="margin-right: 6px; vertical-align: middle;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download Resume
+          </a>
           <a class="btn btn-outline ripple-host" data-magnetic href="mantavya_resume.pdf" target="_blank" rel="noopener" style="font-size:0.88rem; padding: 10px 22px;">
             View Resume
           </a>
@@ -1040,36 +1007,42 @@ const data = {
   ],
   experience: [
   {
-    title: "Data Analyst Intern",
-    company: "Fino Payment Bank",
-    date: "Jun'25 – Jul'25",
-    description: "Engineered analytics dashboards and extracted business insights using Python, SQL, and Tableau for financial and customer data.",
-    technologies: ["Python", "SQL", "Tableau", "Excel", "Pandas", "Matplotlib"],
+    title: "Mathematical Modelling & AI Intern",
+    company: "Palpx",
+    date: "May'26 – Jul'26",
+    description: "Developed robust mathematical scoring models and an intelligent LLM routing engine to drive business decision-making via statistical modelling and predictive analytics.",
+    technologies: [
+      "Python", "Pandas", "NumPy", "Statistical Modeling", "Bayesian Inference", 
+      "Predictive Analytics", "Mathematical Optimization", "LLMs", "Decision Intelligence", "Lambda Calculus"
+    ],
     responsibilities: [
-      "Analyzed customer transactions and operational performance data to identify key business trends.",
-      "Architected and deployed interactive dashboards and reports for executive stakeholders.",
-      "Engineered automated pipelines to clean, transform, and structure raw datasets for analysis."
+      "Built 4 predictive scoring models utilizing statistical modeling, probabilistic modeling, and mathematical optimization.",
+      "Applied Lambda Calculus in computational research, mathematical modeling, and AI system development workflows.",
+      "Engineered an intelligent LLM routing engine supporting 100+ AI models using utility optimization."
     ],
     projectsCompleted: [
-      "Customer segmentation dashboard",
-      "Transaction behavior analysis",
-      "Operational KPI reporting dashboards",
-      "Automated reporting workflows"
+      "ATLAS Router (100+ Model Routing)",
+      "Lead Score Model",
+      "Project Score Model",
+      "Employee Score Model",
+      "Employee Growth Score Model"
     ],
     impact: [
-      "Driven strategic decision-making through actionable and clearer business insights.",
-      "Automated reporting workflows using Python and SQL, significantly reducing manual data processing hours.",
-      "Enabled real-time tracking of critical operational performance metrics."
+      "Delivered structured, objective decision models adopted across multiple critical business use cases.",
+      "Successfully launched a decision intelligence engine supporting intelligent routing across 100+ AI models.",
+      "Integrated formal mathematical foundations to ensure highly scalable and reliable computation."
     ],
     skillsLearned: [
-      "Financial data analysis",
-      "Dashboard storytelling",
-      "Business KPI design",
-      "Data cleaning and reporting automation"
+      "Bayesian inference",
+      "Decision intelligence",
+      "Weighted scoring methodologies",
+      "Predictive analytics",
+      "LLM orchestration",
+      "Mathematical optimization"
     ],
     keyAchievements: [
-      "Successfully delivered end-to-end data analytics pipelines and dashboards using Python, SQL, and Tableau.",
-      "Empowered executive decision-making by translating ambiguous business questions into measurable KPI dashboards."
+      "Successfully deployed four enterprise-grade mathematical scoring models.",
+      "Built and scaled an intelligent LLM routing engine handling optimization for over 100 models."
     ]
   },
   {
@@ -1079,80 +1052,65 @@ const data = {
     description: "Architected AI-driven recruitment systems utilizing vector databases, hybrid search, AST analysis, and LLM evaluation.",
     technologies: ["Python", "Vector Databases", "LLMs", "Hybrid Search", "AST Analysis", "Data Engineering"],
     responsibilities: [
-      "Architected core components of a scalable AI-powered recruitment evaluation platform.",
-      "Engineered candidate discovery pipelines leveraging semantic search and automated assessment workflows.",
-      "Spearheaded the integration of software engineering and ML systems for robust technical evaluation."
+      "Architected a high-dimensional talent discovery engine using vector DBs and hybrid search for advanced semantic matching.",
+      "Engineered an AST-based code analysis pipeline evaluating code complexity, concurrency, and memory for accurate builder scoring.",
+      "Developed a robust LLM evaluation framework ensuring consistent benchmarking accuracy using judge-based evaluation methodologies."
     ],
     projectsCompleted: [
-      "Talent evaluation platform",
+      "Talent discovery engine",
       "Hybrid semantic candidate search pipeline",
       "AST-based code assessment workflow",
       "LLM-powered technical benchmarking framework"
     ],
     impact: [
-      "Streamlined the technical screening process, drastically reducing manual review time for recruiters.",
-      "Enhanced the accuracy of intelligent matching between candidates and complex job requirements.",
-      "Automated and accelerated technical assessment workflows to support high-volume recruitment."
+      "Streamlined the technical screening process through accurate semantic matching and automated code analysis.",
+      "Enhanced the objectivity of developer benchmarking with rigorous AST and LLM judge-based evaluations.",
+      "Automated technical assessment workflows to support high-volume, high-quality engineering recruitment."
     ],
     skillsLearned: [
       "LLM evaluation design",
       "Semantic retrieval systems",
-      "Code analysis workflows",
-      "ML system integration"
+      "Abstract Syntax Tree (AST) analysis",
+      "Judge-based benchmarking"
     ],
     keyAchievements: [
-      "Architected a unified recruitment pipeline seamlessly integrating LLMs, hybrid search, and AST code analysis.",
-      "Significantly boosted the speed, scalability, and precision of the technical screening process."
+      "Designed a highly accurate talent discovery engine leveraging vector DBs and hybrid search.",
+      "Engineered an AST code analysis pipeline for deep technical assessment of builders."
     ]
   },
   {
-  title: "Mathematical Modelling & AI Intern",
-  company: "Palpx",
-  date: "May'26 – Jul'26",
-  description: "Developed robust mathematical scoring models and an intelligent LLM routing engine to drive business decision-making via statistical modelling and predictive analytics.",
-  technologies: [
-    "Python",
-    "Pandas",
-    "NumPy",
-    "Statistical Modeling",
-    "Bayesian Inference",
-    "Predictive Analytics",
-    "Mathematical Modelling",
-    "LLMs",
-    "Decision Intelligence",
-    "Lambda Calculus"
-  ],
-  responsibilities: [
-    "Designed and deployed comprehensive mathematical frameworks for enterprise business decision support.",
-    "Architected data-driven scoring systems for evaluating leads, projects, employees, and long-term workforce growth.",
-    "Engineered an intelligent LLM routing engine optimizing inference across 75+ AI models based on cost, latency, and confidence.",
-    "Researched and integrated formal mathematical foundations to ensure scalable and reliable computation."
-  ],
-  projectsCompleted: [
-    "ATLAS Router",
-    "Lead Score Model",
-    "Project Score Model",
-    "Employee Score Model",
-    "Employee Growth Score Model"
-  ],
-  impact: [
-    "Delivered structured, objective decision models adopted across multiple critical business use cases.",
-    "Successfully launched a decision intelligence engine supporting intelligent routing across 75+ AI models.",
-    "Significantly improved the objectivity and accuracy of prioritization, routing, and evaluation frameworks."
-  ],
-  skillsLearned: [
-    "Bayesian inference",
-    "Decision intelligence",
-    "Weighted scoring methodologies",
-    "Predictive analytics",
-    "LLM orchestration",
-    "Formal computational thinking"
-  ],
-  keyAchievements: [
-    "Successfully deployed four enterprise-grade mathematical scoring models and the scalable ATLAS LLM routing engine.",
-    "Bridged the gap between theoretical mathematical models and production-ready AI decision-intelligence systems."
-  ]
-}
+    title: "Data Analyst Intern",
+    company: "Fino Payment Bank",
+    date: "Jun'25 – Jul'25",
+    description: "Engineered analytics dashboards and extracted business insights using Python, SQL, and Tableau for financial and customer data.",
+    technologies: ["Python", "SQL", "Tableau", "Excel", "Pandas", "Matplotlib"],
+    responsibilities: [
+      "Processed and analyzed 1M+ financial records using SQL and Python to identify market trends and customer behavior.",
+      "Developed interactive Tableau dashboards visualizing 20+ KPIs, directly supporting executive decision-making systems.",
+      "Collaborated with cross-functional teams to enhance data integrity and contribute to improved analytical models."
+    ],
+    projectsCompleted: [
+      "Customer segmentation dashboard",
+      "Transaction behavior analysis",
+      "Operational KPI reporting dashboards",
+      "Automated reporting workflows"
+    ],
+    impact: [
+      "Driven strategic executive decision-making through actionable visualizations of 20+ KPIs.",
+      "Successfully processed over 1 million financial records, uncovering valuable market trends.",
+      "Significantly improved analytical data integrity across cross-functional enterprise teams."
+    ],
+    skillsLearned: [
+      "Financial data analysis",
+      "Tableau dashboard storytelling",
+      "Business KPI design",
+      "Large-scale data processing (1M+ records)"
+    ],
+    keyAchievements: [
+      "Analyzed 1M+ financial records to identify actionable market and customer behavioral trends.",
+      "Deployed interactive Tableau dashboards that actively support executive decision-making systems."
+    ]
+  }
 ],
 
   contacts: [
@@ -1196,7 +1154,7 @@ const data = {
 
   document.getElementById("experience-list").innerHTML =
   data.experience.map((e, idx) => `
-    <div class="job-card fade-up job-toggle" data-job="${idx}">
+    <div class="job-card fade-up job-toggle open" data-job="${idx}">
       <div class="job-dot"></div>
       <div class="job-top">
         <h3>${e.title}</h3>
@@ -1362,43 +1320,7 @@ navLinks.querySelectorAll("a").forEach(a =>
     });
 });
 
-/* ── CUSTOM CURSOR ────────────────────────────────────────── */
-const dot = document.querySelector(".cursor-dot");
-const ring = document.querySelector(".cursor-ring");
-const cursorLabel = document.getElementById("cursor-label");
-let mx = window.innerWidth/2, my = window.innerHeight/2;
-let rx = mx, ry = my;
-window.addEventListener("mousemove", e => {
-  mx = e.clientX; my = e.clientY;
-  dot.style.left = mx + "px"; dot.style.top = my + "px";
-  cursorLabel.style.left = mx + "px"; cursorLabel.style.top = my + "px";
-});
-(function ringLoop() {
-  rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
-  ring.style.left = rx + "px"; ring.style.top = ry + "px";
-  requestAnimationFrame(ringLoop);
-})();
 
-document.addEventListener("mouseover", e => {
-  /* project cards → show "View →" cursor */
-  if (e.target.closest(".project-link")) {
-    ring.classList.add("view-mode");
-    cursorLabel.classList.add("show");
-    dot.style.opacity = "0";
-    return;
-  }
-  if (e.target.closest("a, button, .skill-pill, .stat-card, [data-magnetic], #email-copy"))
-    ring.classList.add("hovering");
-});
-document.addEventListener("mouseout", e => {
-  if (e.target.closest(".project-link")) {
-    ring.classList.remove("view-mode");
-    cursorLabel.classList.remove("show");
-    dot.style.opacity = "1";
-  }
-  if (e.target.closest("a, button, .skill-pill, .stat-card, [data-magnetic], #email-copy"))
-    ring.classList.remove("hovering");
-});
 
 /* ── PARTICLE NETWORK BACKGROUND ──────────────────────────── */
 const pc = document.getElementById("particle-canvas");
@@ -1448,43 +1370,7 @@ function drawParticles() {
 }
 drawParticles();
 
-/* ── CLICK BURST EFFECT ───────────────────────────────────── */
-const fx = document.getElementById("fx-canvas");
-const fxctx = fx.getContext("2d");
-function resizeFX() { fx.width = innerWidth; fx.height = innerHeight; }
-resizeFX();
-window.addEventListener("resize", resizeFX);
-let bursts = [];
-const colors = ["#7c6af7","#a695ff","#c084fc","#22d3ee","#ffffff"];
-window.addEventListener("click", e => {
-  for (let i=0;i<24;i++) {
-    const angle = (Math.PI*2)*(i/24);
-    const speed = Math.random()*4+2;
-    bursts.push({
-      x: e.clientX, y: e.clientY,
-      vx: Math.cos(angle)*speed, vy: Math.sin(angle)*speed,
-      life: 1, color: colors[Math.floor(Math.random()*colors.length)],
-      r: Math.random()*3+1.5
-    });
-  }
-});
-function drawBursts() {
-  fxctx.clearRect(0,0,fx.width,fx.height);
-  bursts = bursts.filter(b => b.life > 0);
-  for (const b of bursts) {
-    b.x += b.vx; b.y += b.vy;
-    b.vy += 0.08; b.vx *= 0.97; b.vy *= 0.97;
-    b.life -= 0.02;
-    fxctx.globalAlpha = Math.max(b.life, 0);
-    fxctx.beginPath();
-    fxctx.arc(b.x, b.y, b.r, 0, Math.PI*2);
-    fxctx.fillStyle = b.color;
-    fxctx.fill();
-  }
-  fxctx.globalAlpha = 1;
-  requestAnimationFrame(drawBursts);
-}
-drawBursts();
+
 
 /* ── RIPPLE ON CLICKABLES ─────────────────────────────────── */
 document.addEventListener("click", e => {
