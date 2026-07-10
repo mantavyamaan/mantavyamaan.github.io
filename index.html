@@ -56,7 +56,6 @@
 
   body {
     font-family: 'Inter', system-ui, sans-serif;
-    background: linear-gradient(180deg, rgba(5,5,5,0.65) 0%, rgba(5,5,5,0.95) 40%, rgba(5,5,5,0.98) 100%), url('me.jpg') center/cover fixed no-repeat;
     background-color: var(--bg);
     color: var(--text);
     line-height: 1.75;
@@ -74,6 +73,14 @@
     outline: 2px solid var(--accent-light);
     outline-offset: 4px;
     border-radius: 4px;
+  }
+
+  .fixed-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    background: linear-gradient(180deg, rgba(5,5,5,0.65) 0%, rgba(5,5,5,0.95) 40%, rgba(5,5,5,0.98) 100%), url('me.jpg') center/cover no-repeat;
+    z-index: -2;
+    pointer-events: none;
   }
 
   /* ─── SCROLLBAR ─────────────────────────────────────────────── */
@@ -725,6 +732,7 @@
 </style>
 </head>
 <body>
+<div class="fixed-bg"></div>
 
 <div id="preloader">
   <div class="preloader-logo">MM</div>
