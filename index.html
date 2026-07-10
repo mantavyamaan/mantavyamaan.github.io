@@ -110,13 +110,16 @@
   #preloader.hidden { opacity: 0; visibility: hidden; }
   .preloader-logo {
     font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700; font-size: 2.6rem;
-    width: 92px; height: 92px; border-radius: 22px;
+    font-weight: 800; font-size: 2.8rem;
+    width: 96px; height: 96px; border-radius: 24px;
     display: flex; align-items: center; justify-content: center;
-    color: #000;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    box-shadow: 0 0 30px rgba(255,255,255,0.4), 0 0 60px rgba(255,255,255,0.2), inset 0 0 10px rgba(255,255,255,0.8);
-    animation: pl-pop 1.4s ease-in-out infinite;
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(255,255,255,0.8), 0 0 24px rgba(255,255,255,0.4);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 40px rgba(255,255,255,0.3), 0 0 80px rgba(255,255,255,0.15), inset 0 0 20px rgba(255,255,255,0.1);
+    animation: pl-pop 1.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
   }
   @keyframes pl-pop { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
   .preloader-text {
@@ -216,6 +219,24 @@
   }
   nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
   nav .container { display: flex; justify-content: space-between; align-items: center; height: 68px; }
+
+  .nav-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-brand-icon {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800; font-size: 0.85rem;
+    width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(255,255,255,0.8);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 12px rgba(255,255,255,0.3), inset 0 0 6px rgba(255,255,255,0.2);
+  }
 
   .nav-logo {
     font-family: 'Space Grotesk', sans-serif;
@@ -760,7 +781,10 @@
 
 <nav id="navbar">
   <div class="container">
-    <div class="nav-logo">Mantavya Maan</div>
+    <div class="nav-logo-container">
+      <div class="nav-brand-icon">MM</div>
+      <div class="nav-logo">Mantavya Maan</div>
+    </div>
     <div class="nav-links" id="nav-links">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
