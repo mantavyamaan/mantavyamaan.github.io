@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mantavya Maan — Mathematics & AI Portfolio</title>
+
+<meta name="description" content="Mantavya Maan — 4th year Mathematics undergraduate at IIT Bombay. Building AI-powered solutions through mathematics, machine learning, and data analytics.">
+<meta name="author" content="Mantavya Maan">
+<meta name="keywords" content="Mantavya Maan, IIT Bombay, Mathematics, Machine Learning, Data Analytics, AI, Portfolio, Data Scientist">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mantavya Maan — Mathematics & AI Portfolio">
+<meta property="og:description" content="4th year Mathematics undergraduate at IIT Bombay. Building AI-powered solutions through mathematics and analytics.">
+<meta property="og:image" content="https://mantavyamaan.github.io/me.jpg">
+<meta property="og:image:alt" content="Mantavya Maan">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mantavya Maan — Mathematics & AI Portfolio">
+<meta name="twitter:description" content="4th year Mathematics undergraduate at IIT Bombay. Building AI-powered solutions through mathematics and analytics.">
+<meta name="twitter:image" content="https://mantavyamaan.github.io/me.jpg">
+
+<meta name="theme-color" content="#050505">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f3f4f6'/%3E%3Cstop offset='1' stop-color='%23d1d5db'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Arial, sans-serif' font-size='30' font-weight='700' fill='%23000000' text-anchor='middle'%3EMM%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ─── RESET & VARIABLES ─────────────────────────────────────── */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --accent:       #f3f4f6;
+    --accent-light: #ffffff;
+    --accent-2:     #d1d5db;
+    --accent-3:     #9ca3af;
+    --accent-dim:   rgba(255, 255, 255, 0.1);
+    --accent-glow:  rgba(255, 255, 255, 0.2);
+    --bg:           #050505;
+    --bg2:          #0a0a0a;
+    --card:         #0f1115;
+    --card2:        #161a20;
+    --border:       rgba(255,255,255,0.06);
+    --border-hover: rgba(255,255,255,0.3);
+    --text:         #f9fafb;
+    --text2:        #a1a1aa;
+    --text3:        #71717a;
+    --radius:       14px;
+    --radius-lg:    20px;
+  }
+
+  /* Increase text brightness on mobile */
+  @media (max-width: 768px) {
+    :root {
+      --text2: #e4e4e7;
+      --text3: #d4d4d8;
+    }
+  }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    overflow-x: hidden;
+    cursor: url('data:image/svg+xml;utf8,<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 2L22 11.5L13.5 13.5L9 22L4 2Z" fill="%23ffffff" stroke="%23333333" stroke-width="2" stroke-linejoin="round"/></svg>'), auto;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  img { display: block; }
+
+  ::selection { background: var(--accent-glow); color: #fff; }
+
+  /* ─── ACCESSIBILITY: FOCUS STATES ───────────────────────────── */
+  *:focus-visible {
+    outline: 2px solid var(--accent-light);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  .fixed-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    background: url('me.jpg') center/cover no-repeat;
+    z-index: -2;
+    pointer-events: none;
+  }
+
+  /* ─── SCROLLBAR ─────────────────────────────────────────────── */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--accent), var(--accent-2));
+    border-radius: 4px;
+  }
+
+  /* ─── PRELOADER ─────────────────────────────────────────────── */
+  #preloader {
+    position: fixed; inset: 0; z-index: 1000000;
+    background: var(--bg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 22px;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+  }
+  #preloader.hidden { opacity: 0; visibility: hidden; }
+  .preloader-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800; font-size: 2.8rem;
+    width: 96px; height: 96px; border-radius: 24px;
+    display: flex; align-items: center; justify-content: center;
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(255,255,255,0.8), 0 0 24px rgba(255,255,255,0.4);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 40px rgba(255,255,255,0.3), 0 0 80px rgba(255,255,255,0.15), inset 0 0 20px rgba(255,255,255,0.1);
+    animation: pl-pop 1.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+  @keyframes pl-pop { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+  .preloader-text {
+    font-size: 0.85rem; color: var(--text2); letter-spacing: 0.25em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .preloader-bar {
+    width: 160px; height: 3px; border-radius: 4px; overflow: hidden;
+    background: rgba(255,255,255,0.08);
+  }
+  .preloader-bar::after {
+    content: ''; display: block; height: 100%; width: 40%; border-radius: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+    animation: pl-slide 1.1s ease-in-out infinite;
+  }
+  @keyframes pl-slide {
+    0% { transform: translateX(-120%); }
+    100% { transform: translateX(320%); }
+  }
+
+  /* ─── PAGE ENTRANCE ─────────────────────────────────────────── */
+  #page {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    background: linear-gradient(180deg, rgba(5,5,5,0.07) 0vh, rgba(5,5,5,0.92) 120vh, rgba(5,5,5,0.98) 100%);
+  }
+  #page.loaded { opacity: 1; }
+
+  /* ─── SCROLL PROGRESS BAR ───────────────────────────────────── */
+  #scroll-progress {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+    z-index: 9999;
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+
+  /* ─── CUSTOM CURSOR ─────────────────────────────────────────── */
+
+
+  /* ─── CANVAS BACKGROUND ─────────────────────────────────────── */
+  #particle-canvas {
+    position: fixed; inset: 0; z-index: 0;
+    pointer-events: none;
+    will-change: transform;
+  }
+  #fx-canvas {
+    position: fixed; inset: 0; z-index: 99999;
+    pointer-events: none;
+  }
+
+  /* ─── NOISE OVERLAY ─────────────────────────────────────────── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.4;
+  }
+
+  /* ─── LAYOUT ────────────────────────────────────────────────── */
+  .container { max-width: 1060px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  /* ─── ANIMATED GRID BG ──────────────────────────────────────── */
+  .grid-bg {
+    position: fixed; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(124,106,247,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(124,106,247,0.035) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    animation: grid-pan 25s linear infinite;
+  }
+  @keyframes grid-pan {
+    from { background-position: 0 0; }
+    to   { background-position: 60px 60px; }
+  }
+
+  /* floating ambient orbs */
+  .orb {
+    position: fixed; border-radius: 50%;
+    filter: blur(90px); z-index: 0; pointer-events: none;
+    opacity: 0.35;
+  }
+  .orb.o1 { width: 420px; height: 420px; background: var(--accent); top: -120px; left: -120px; animation: drift1 18s ease-in-out infinite; }
+  .orb.o2 { width: 360px; height: 360px; background: var(--accent-2); bottom: -120px; right: -100px; animation: drift2 22s ease-in-out infinite; }
+  .orb.o3 { width: 300px; height: 300px; background: var(--accent-3); top: 40%; right: 20%; opacity: 0.18; animation: drift1 26s ease-in-out infinite reverse; }
+  @keyframes drift1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(80px,60px); } }
+  @keyframes drift2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-70px,-50px); } }
+
+  /* ─── NAV ────────────────────────────────────────────────────── */
+  nav {
+    position: sticky; top: 0; z-index: 200;
+    background: rgba(6,7,16,0.6);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
+  nav .container { display: flex; justify-content: space-between; align-items: center; height: 68px; }
+
+  .nav-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-brand-icon {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800; font-size: 0.85rem;
+    width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(255,255,255,0.8);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 12px rgba(255,255,255,0.3), inset 0 0 6px rgba(255,255,255,0.2);
+  }
+
+  .nav-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 1.25rem;
+    background: linear-gradient(135deg, #fff 20%, var(--accent-light) 60%, var(--accent-3));
+    background-size: 200% auto;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 5s linear infinite;
+  }
+  @keyframes shimmer { to { background-position: 200% center; } }
+
+  .nav-links { display: flex; gap: 4px; align-items: center; }
+  .nav-links a {
+    color: var(--text2); font-size: 0.9rem; font-weight: 500;
+    padding: 6px 14px; border-radius: 8px;
+    transition: color 0.2s;
+    position: relative;
+  }
+  /* smooth sliding underline */
+  .nav-links a:not(.nav-cta)::after {
+    content: ''; position: absolute; left: 14px; right: 14px; bottom: 2px; height: 2px;
+    background: var(--accent); border-radius: 2px;
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .nav-links a:not(.nav-cta):hover { color: var(--text); }
+  .nav-links a:not(.nav-cta):hover::after,
+  .nav-links a:not(.nav-cta).active::after { transform: scaleX(1); }
+  .nav-links a.active { color: var(--text); }
+
+  .nav-cta {
+    background: var(--accent) !important;
+    color: #000 !important;
+    padding: 7px 18px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    transition: opacity 0.2s, transform 0.2s !important;
+  }
+  .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); background: var(--accent) !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+
+  /* ─── RIPPLE ────────────────────────────────────────────────── */
+  .ripple-host { position: relative; overflow: hidden; }
+  .ripple {
+    position: absolute; border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    transform: translate(-50%,-50%) scale(0);
+    animation: ripple-anim 0.6s ease-out forwards;
+    pointer-events: none;
+  }
+  @keyframes ripple-anim { to { transform: translate(-50%,-50%) scale(1); opacity: 0; } }
+
+  /* ─── HERO ───────────────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0; }
+  
+  /* KINETIC STAGGERED REVEAL */
+  .hero-inner > * {
+    opacity: 0;
+    animation: hero-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .hero-inner .avatar-wrap { animation-delay: 0.1s; }
+  .hero-inner .status-badge { animation-delay: 0.2s; }
+  .hero-inner h1 { animation-delay: 0.3s; }
+  .hero-inner .hero-role { animation-delay: 0.4s; }
+  .hero-inner .hero-tagline { animation-delay: 0.5s; }
+  .hero-inner .hero-btns { animation-delay: 0.6s; }
+
+  @keyframes hero-fade-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .status-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 6px 16px; border-radius: 100px;
+    font-size: 0.85rem; color: #fff; font-weight: 500;
+    margin-bottom: 22px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .status-badge:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+  .status-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #22c55e; box-shadow: 0 0 8px #22c55e;
+    animation: blink 1.8s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  .hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    font-weight: 800; line-height: 1.1; letter-spacing: -0.03em;
+    margin-bottom: 14px;
+  }
+  .hero h1 .name-accent {
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-2) 50%, var(--accent) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+    display: inline-block;
+  }
+
+  .hero-role { font-size: 1.15rem; color: var(--text2); font-weight: 500; margin-bottom: 20px; min-height: 1.6em; }
+  .hero-role span { color: var(--accent-light); }
+  .type-caret { display: inline-block; width: 2px; height: 1.1em; background: var(--accent-light); margin-left: 2px; vertical-align: -0.15em; animation: caret 0.8s steps(1) infinite; }
+  @keyframes caret { 50% { opacity: 0; } }
+
+  .hero-tagline { color: var(--text3); font-size: 1rem; max-width: 520px; margin: 0 auto 36px; }
+
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 28px; border-radius: 10px;
+    font-weight: 600; font-size: 0.95rem;
+    transition: transform 0.15s ease, box-shadow 0.2s, opacity 0.2s;
+    will-change: transform;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #ffffff, #d1d5db);
+    color: #000; box-shadow: 0 4px 20px var(--accent-glow);
+  }
+  .btn-primary:hover { box-shadow: 0 8px 30px var(--accent-glow); color: #000; }
+  .btn-outline { background: transparent; border: 1px solid var(--border-hover); color: var(--accent-light); }
+  .btn-outline:hover { background: var(--accent-dim); color: var(--accent-light); }
+
+  .scroll-hint {
+    position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    color: var(--text3); font-size: 0.75rem; letter-spacing: 0.1em;
+    animation: float 2.5s ease-in-out infinite;
+  }
+  .scroll-hint svg { opacity: 0.5; }
+  @keyframes float { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+
+  /* ─── SECTION STYLES ─────────────────────────────────────────── */
+  section { padding: 90px 0; position: relative; }
+  section + section { border-top: 1px solid var(--border); }
+
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  .section-label::before { content: ''; display: block; width: 20px; height: 2px; background: var(--accent); }
+
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+    font-weight: 700; letter-spacing: -0.02em;
+    margin-bottom: 14px; line-height: 1.15;
+  }
+  .section-title span { color: var(--accent-light); }
+
+  .section-sub { color: var(--text2); font-size: 1rem; max-width: 600px; margin-bottom: 52px; }
+
+  .section-header { margin-bottom: 52px; }
+  .section-header.centered { text-align: center; }
+  .section-header.centered .section-label { justify-content: center; }
+  .section-header.centered .section-sub { margin: 0 auto 0; }
+
+  /* ─── ABOUT ──────────────────────────────────────────────────── */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .about-text-block p { color: var(--text2); font-size: 1rem; line-height: 1.85; margin-bottom: 18px; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .stat-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+    will-change: transform;
+    color: inherit;
+    text-decoration: none;
+    display: block;
+  }
+  .stat-card:hover { 
+    border-color: rgba(255,255,255,0.2); 
+    box-shadow: 0 16px 40px rgba(0,0,0,0.8), 0 0 20px rgba(255,255,255,0.03); 
+    transform: translateY(-4px); 
+    background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+  }
+  .stat-card .stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem; font-weight: 700;
+    color: var(--accent-light); line-height: 1; margin-bottom: 4px;
+  }
+  .stat-card .stat-label { font-size: 0.82rem; color: var(--text3); font-weight: 500; }
+
+  /* ─── SKILLS ─────────────────────────────────────────────────── */
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .skill-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: var(--text2); padding: 10px 20px; border-radius: 100px;
+    font-size: 0.88rem; font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+  }
+  .skill-pill:hover {
+    border-color: rgba(255,255,255,0.3); color: #fff;
+    background: rgba(255,255,255,0.08); transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 22px rgba(255,255,255,0.05);
+  }
+  .skill-pill.zap { animation: zap 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  @keyframes zap { 0% { transform: scale(1); } 40% { transform: scale(1.15); background: #fff; color: #000; border-color: #fff; } 100% { transform: scale(1); } }
+  .skill-pill .emoji { font-size: 1rem; line-height: 1; flex-shrink: 0; }
+
+  /* skill description popup */
+  .skill-desc {
+    max-width: 620px; margin: 28px auto 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius); padding: 20px 24px;
+    text-align: center;
+    opacity: 0; transform: translateY(10px); height: 0; padding-top: 0; padding-bottom: 0;
+    overflow: hidden;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  }
+  .skill-desc.show {
+    opacity: 1; transform: translateY(0); height: auto; padding-top: 20px; padding-bottom: 20px;
+  }
+  .skill-desc .sd-title {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    font-size: 1.05rem; color: var(--accent-light); margin-bottom: 6px;
+  }
+  .skill-desc .sd-body { color: var(--text2); font-size: 0.92rem; line-height: 1.7; }
+
+  /* ─── PROJECTS (GLASSMORPHISM) ───────────────────────────────── */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .project-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-lg); padding: 32px;
+    display: flex; flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative; overflow: hidden;
+    transform-style: preserve-3d; will-change: transform;
+    color: inherit;
+  }
+  .project-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    opacity: 0; transition: opacity 0.4s ease;
+  }
+  /* moving spotlight that follows the mouse */
+  .project-card .glare {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0;
+    background: radial-gradient(400px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.08), transparent 50%);
+    transition: opacity 0.4s;
+    z-index: 1;
+  }
+  .project-card:hover {
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(255,255,255,0.03);
+    transform: translateY(-8px) scale(1.01);
+    background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+  }
+  .project-card:hover::before { opacity: 1; }
+  .project-card:hover .glare { opacity: 1; }
+
+  .project-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 22px; font-size: 1.3rem; color: #fff;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s, box-shadow 0.4s;
+    position: relative; z-index: 2;
+  }
+  .project-card:hover .project-icon { 
+    transform: translateZ(40px) scale(1.15) rotate(-5deg); 
+    background: #fff; color: #000;
+    box-shadow: 0 10px 20px rgba(255,255,255,0.2);
+  }
+  .project-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: #fff; position: relative; z-index: 2; }
+  .project-card p { color: var(--text2); font-size: 0.95rem; line-height: 1.7; margin-bottom: 24px; position: relative; z-index: 2; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; position: relative; z-index: 2; }
+  .project-tag { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.05); color: #fff; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.03em; }
+  .project-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text2); font-size: 0.9rem; font-weight: 600; transition: all 0.3s; position: relative; z-index: 2; }
+  .project-card:hover .project-link { gap: 10px; color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+  .project-links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: auto; position: relative; z-index: 2; }
+  .project-link-demo { color: var(--accent-3); }
+  .project-card:hover .project-link-demo { color: var(--accent-3); }
+
+  /* ─── EXPERIENCE (GLASSMORPHISM) ─────────────────────────────── */
+  .timeline { position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 20px; top: 0; bottom: 0;
+    width: 2px; background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
+    opacity: 0.8;
+  }
+  .job-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-lg); padding: 28px 28px 28px 68px;
+    margin-bottom: 22px; position: relative;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    color: inherit;
+    text-decoration: none;
+    display: block;
+  }
+  .job-card:hover{
+    transform:translateY(-5px) scale(1.01);
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 30px rgba(255,255,255,0.03);
+    background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+  }
+  .job-dot {
+    position: absolute; left: 12px; top: 32px;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: #fff; border: 3px solid var(--bg);
+    box-shadow: 0 0 12px rgba(255,255,255,0.3);
+  }
+  .job-card:hover .job-dot { animation: dot-pulse 1.5s ease infinite; }
+  @keyframes dot-pulse { 0%,100% { box-shadow: 0 0 12px rgba(255,255,255,0.3); } 50% { box-shadow: 0 0 22px #fff, 0 0 8px rgba(255,255,255,0.8); } }
+  .job-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+  .job-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; }
+  .job-date { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.05); color: #fff; padding: 3px 12px; border-radius: 100px; font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
+  .job-company {
+  color: var(--text2);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: default;
+  user-select: none;
+  }
+  .job-company .job-chevron {
+    font-size: 0.8rem;
+    transition: transform 0.25s ease;
+  }
+  .job-card.open .job-company .job-chevron {
+    transform: rotate(180deg);
+  }
+  .job-card p { color: var(--text2); font-size: 0.9rem; line-height: 1.75; }
+
+  .job-details {
+      margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
+  }
+  .job-card.open .job-details {
+    max-height: 1500px;
+  }
+  .job-detail-block {
+    margin-bottom: 16px;
+  }
+  .job-detail-block:last-child {
+    margin-bottom: 0;
+  }
+  .job-detail-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 8px;
+  }
+  .job-detail-list {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--text2);
+  }
+  .job-detail-list li {
+    margin-bottom: 6px;
+    line-height: 1.7;
+  }
+  .job-detail-text {
+    color: var(--text2);
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+  .job-toggle{
+      cursor:pointer;
+  }
+
+
+  /* ─── CONTACT ────────────────────────────────────────────────── */
+  .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .contact-card { 
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08); 
+    border-radius: var(--radius-lg); padding: 32px; 
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+  }
+  .contact-card p { color: var(--text2); font-size: 0.95rem; line-height: 1.8; margin-bottom: 28px; }
+  .contact-links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .contact-link {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.08);
+    padding: 14px 16px; border-radius: var(--radius);
+    color: var(--text2); font-size: 0.88rem; font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .contact-link:hover {
+    border-color: rgba(255,255,255,0.3); color: #fff;
+    background: rgba(255,255,255,0.08); transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(255,255,255,0.05);
+  }
+  .contact-link .icon { display: flex; align-items: center; font-size: 1.1rem; flex-shrink: 0; color: #fff; }
+
+  .contact-email-block { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .contact-email-block p { 
+    color: var(--text2); 
+    margin-bottom: 4px !important; 
+  }
+  .contact-email-block .big-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 700; color: var(--text);
+    word-break: break-all; 
+    margin: 0;
+    background: linear-gradient(135deg, var(--text), var(--accent-light));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+  .contact-email-block .big-text:hover { transform: scale(1.03); }
+  .copy-toast {
+    position: absolute;
+    top: -24px;
+    font-size: 0.78rem; color: var(--accent-3);
+    opacity: 0; 
+    transition: opacity 0.3s, transform 0.3s; 
+    transform: translateY(10px);
+    pointer-events: none;
+  }
+  .copy-toast.show { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+
+  /* ─── FOOTER ─────────────────────────────────────────────────── */
+  footer { border-top: 1px solid var(--border); padding: 36px 0; text-align: center; position: relative; z-index: 1; }
+  footer p { color: var(--text3); font-size: 0.82rem; }
+  footer a { color: var(--text3); transition: color 0.2s; }
+  footer a:hover { color: var(--accent-light); }
+
+  /* ─── FADE-IN ────────────────────────────────────────────────── */
+  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─────────────────────────────────────────────── */
+  @media (hover: none), (pointer: coarse) {
+      body { cursor: auto; }
+      .cursor-dot, .cursor-ring, .cursor-label { display: none; }
+    }
+    @media (max-width: 768px) {
+      .hero{
+      min-height:calc(100vh + 100px);
+      padding-bottom:100px;
+  }
+  
+  .hero-btns{
+      gap:18px;
+  }
+  
+  .scroll-hint{
+      bottom:10px;
+  }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: absolute; top: 68px; left: 0; right: 0;
+      background: rgba(6,7,16,0.97);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 28px 24px; gap: 4px; z-index: 200;
+    }
+    .hamburger { display: flex; }
+    .about-grid { grid-template-columns: 1fr; }
+    .contact-wrapper { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.4rem; }
+    .hero-btns { flex-direction: column; align-items: center; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    .timeline::before { left: 8px; }
+    .job-card { padding-left: 44px; }
+    .job-dot { left: 0; }
+    .contact-links-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .about-stats { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .hero { padding: 80px 0 60px; }
+  }
+</style>
+</head>
+<body>
+<div class="fixed-bg"></div>
+
+<div id="preloader">
+  <div class="preloader-logo">MM</div>
+  <div class="preloader-bar"></div>
+  <div class="preloader-text">Loading</div>
+</div>
+
+<div id="scroll-progress"></div>
+<div class="grid-bg"></div>
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+<div class="orb o3"></div>
+<canvas id="particle-canvas"></canvas>
+
+<div id="page">
+
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-logo-container">
+      <div class="nav-brand-icon">MM</div>
+      <div class="nav-logo">Mantavya Maan</div>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+    <button
+    class="hamburger"
+    id="hamburger"
+    aria-label="Open navigation menu"
+    type="button">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        Open to Internships &amp; Collaborations
+      </div>
+
+      <h1>
+        Hi, I'm <span class="name-accent">Mantavya Maan</span>
+      </h1>
+      <p class="hero-role" id="hero-role"></p>
+      <p class="hero-tagline">
+        Translating complex mathematics into scalable AI and analytical solutions.
+      </p>
+
+      <div class="hero-btns">
+        <a class="btn btn-primary ripple-host" data-magnetic href="mantavya_resume.pdf" download="Mantavya_Maan_Resume.pdf">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download Resume
+        </a>
+        <a class="btn btn-outline ripple-host" data-magnetic href="mantavya_resume.pdf" target="_blank" rel="noopener">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          View Resume
+        </a>
+        <a class="btn btn-outline ripple-host" data-magnetic href="#contact">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text-block fade-up">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">Turning <span>equations</span> into impact</h2>
+        <p>
+          I am a Mathematics undergraduate at IIT Bombay specializing in artificial intelligence, mathematical modelling, and data analytics.
+        </p>
+        <p>
+          I focus on bridging the gap between theoretical mathematics and real-world software engineering, transforming complex data into actionable business intelligence and scalable AI systems.
+        </p>
+        <div style="margin-top: 28px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn btn-primary ripple-host" data-magnetic href="mantavya_resume.pdf" download="Mantavya_Maan_Resume.pdf" style="font-size:0.88rem; padding: 10px 22px;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="margin-right: 6px; vertical-align: middle;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download Resume
+          </a>
+          <a class="btn btn-outline ripple-host" data-magnetic href="mantavya_resume.pdf" target="_blank" rel="noopener" style="font-size:0.88rem; padding: 10px 22px;">
+            View Resume
+          </a>
+        </div>
+      </div>
+
+      <div class="about-stats fade-up">
+        <a class="stat-card tilt" href="#experience">
+          <div class="stat-num" data-count="3" data-suffix="+">0</div>
+          <div class="stat-label">Internships Completed</div>
+        </a>
+        <a class="stat-card tilt" href="https://github.com/mantavyamaan?tab=repositories" target="_blank" rel="noopener">
+          <div class="stat-num" data-count="15" data-suffix="+">0</div>
+          <div class="stat-label">Real-Life Projects Built</div>
+        </a>
+        <div class="stat-card">
+      <div class="stat-num">IIT</div>
+      <div class="stat-label">Bombay, Mathematics</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Problems to Solve</div>
+    </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="section-label">What I Use</div>
+      <h2 class="section-title">Skills &amp; <span>Technologies</span></h2>
+      <p class="section-sub">A toolkit built through coursework, internships, and personal projects. (Tap a skill to learn what it is!)</p>
+    </div>
+    <div class="skills-grid fade-up" id="skills-list"></div>
+    <div class="skill-desc" id="skill-desc">
+      <div class="sd-title" id="sd-title"></div>
+      <div class="sd-body" id="sd-body"></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="section-label">My Work</div>
+      <h2 class="section-title">Featured <span>Projects</span></h2>
+      <p class="section-sub">Real-world solutions built on mathematical modelling and AI.</p>
+    </div>
+    <div class="projects-grid" id="projects-list"></div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Career</div>
+      <h2 class="section-title">Work <span>Experience</span></h2>
+      <p class="section-sub">Internships where I built real products and solved real problems.</p>
+    </div>
+    <div class="timeline" id="experience-list"></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-wrapper">
+      <div class="fade-up">
+        <div class="section-label">Let's Talk</div>
+        <h2 class="section-title">Get In <span>Touch</span></h2>
+        <p style="color: var(--text2); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0;">
+          I'm always open to new opportunities and collaborations. Whether it's an
+          internship, a research discussion, or just a chat — drop me a message.
+        </p>
+      </div>
+
+      <div class="contact-card fade-up">
+        <div class="contact-email-block">
+          <p>Reach me directly at</p>
+          <span class="copy-toast" id="copy-toast">Copied to clipboard ✓</span>
+          <div class="big-text" id="email-copy" title="Click to copy">maanmantavya.iitb@gmail.com</div>
+        </div>
+        <div class="contact-links-grid" id="contact-links"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p id="footer-text"></p>
+  </div>
+</footer>
+
+</div><script>
+/* ── DATA ─────────────────────────────────────────────────── */
+const data = {
+  /* each skill now has a short description */
+  skills: [
+  {
+    name: "Python",
+    desc: "My primary language for building intelligent AI systems, production-grade backend services, mathematical models, and scalable automation pipelines."
+  },
+
+  {
+    name: "C++",
+    desc: "Leveraging high-performance compiled programming for computationally intensive algorithms, optimization problems, and efficient systems engineering."
+  },
+
+  {
+    name: "Machine Learning & Predictive Modeling",
+    desc: "Designing predictive models, semantic classifiers, recommendation systems, and intelligent learning algorithms that extract meaningful patterns from complex data."
+  },
+
+  {
+    name: "LLM Engineering",
+    desc: "Building AI applications around state-of-the-art Large Language Models through intelligent routing, orchestration, prompt engineering, evaluation, and execution workflows."
+  },
+
+  {
+    name: "RAG Systems",
+    desc: "Engineering Retrieval-Augmented Generation pipelines that combine semantic retrieval with LLM reasoning to deliver accurate, context-aware, and hallucination-resistant responses."
+  },
+
+  {
+    name: "Semantic Search",
+    desc: "Developing embedding-powered semantic retrieval systems capable of understanding user intent, contextual similarity, and meaning beyond traditional keyword matching."
+  },
+
+  {
+    name: "Vector Embeddings",
+    desc: "Building dense vector representation pipelines that power semantic parsing, intelligent retrieval, AI routing, and contextual understanding."
+  },
+
+  {
+    name: "Vector Search & Databases",
+    desc: "Implementing scalable semantic retrieval infrastructure using Pinecone, ChromaDB, and modern vector indexing techniques for high-performance AI search."
+  },
+
+  {
+    name: "AI Systems Engineering",
+    desc: "Architecting end-to-end AI platforms by integrating semantic understanding, intelligent routing, execution pipelines, verification, and continuous learning."
+  },
+
+  {
+    name: "AI Orchestration",
+    desc: "Coordinating multiple AI models, execution stages, and verification pipelines to deliver reliable, scalable, and production-ready intelligent workflows."
+  },
+
+  {
+    name: "FastAPI",
+    desc: "Developing high-performance REST APIs and modular backend architectures powering AI platforms, intelligent routing engines, and enterprise-grade services."
+  },
+
+  {
+    name: "Streamlit",
+    desc: "Creating modern interactive AI dashboards for real-time model execution, visualization, experimentation, and intelligent workflow management."
+  },
+
+  {
+    name: "Mathematical Modelling",
+    desc: "Transforming complex business and AI challenges into rigorous mathematical frameworks for optimization, prediction, intelligent decision-making, and strategic planning."
+  },
+
+  {
+    name: "Decision Intelligence & Optimization",
+    desc: "Designing quantitative scoring, optimization, and AI routing frameworks that transform complex data into explainable, reliable, and actionable decisions."
+  },
+
+  {
+    name: "Statistics & Probabilistic Modeling",
+    desc: "Applying probability theory, Bayesian inference, Thompson sampling, and uncertainty estimation to build mathematically grounded AI systems."
+  },
+
+  {
+    name: "Bayesian Inference",
+    desc: "Leveraging probabilistic reasoning to estimate uncertainty, optimize model selection, and improve intelligent decision-making under dynamic real-world conditions."
+  },
+
+  {
+    name: "SQL",
+    desc: "Architecting efficient relational database queries to store, retrieve, transform, and analyze structured enterprise-scale datasets."
+  },
+
+  {
+    name: "SQLite",
+    desc: "Designing lightweight relational databases for dynamic AI model registries, telemetry storage, execution history, and application persistence."
+  },
+
+  {
+    name: "NumPy",
+    desc: "Developing high-performance numerical computing pipelines using vectorized operations, linear algebra, and optimized mathematical computations."
+  },
+
+  {
+    name: "Pandas",
+    desc: "Transforming, cleaning, and analyzing complex structured datasets to power machine learning pipelines, statistical modeling, and business intelligence applications."
+  },
+
+  {
+    name: "Tableau",
+    desc: "Designing interactive business intelligence dashboards with dynamic visualizations, KPI tracking, parameter-driven analytics, and executive reporting to support data-driven decision making."
+  },
+
+  {
+    name: "Matplotlib",
+    desc: "Creating publication-quality visualizations that effectively communicate statistical analyses, machine learning performance, and mathematical insights."
+  },
+
+  {
+    name: "Git",
+    desc: "Managing collaborative software development through efficient version control, branching strategies, code reviews, and production-ready engineering workflows."
+  }
+],
+  projects: [
+    {
+  title: "Neural Gateway",
+  description: "An end-to-end AI inference platform that intelligently parses requests, orchestrates LLM execution, verifies responses, and continuously improves semantic understanding through vector embedding–based learning.",
+  tags: ["Python", "FastAPI", "LLMs", "FastEmbed", "ONNX Runtime", "Semantic AI", "OpenRouter", "Streamlit", "SQLite"],
+  link: "https://github.com/mantavyamaan/Neural-Gateway",
+  demo: "https://mantavyamaan.github.io/Neural-Gateway/demo/"
+},
+    {
+  title: "ATLAS Router",
+  description: "An intelligent LLM routing engine that leverages Bayesian inference and Thompson sampling to dynamically orchestrate AI models, optimizing for cost, latency, and response confidence.",
+  tags: [ "Python", "LLMs", "Bayesian Inference", "Thompson Sampling","Decision Intelligence","Model Routing","AI Orchestration"],
+  link: "https://github.com/mantavyamaan/Atlas-Router-Intelligent-LLM-Routing-Engine",
+  demo: "https://mantavyamaan.github.io/Atlas-Router/atlas_router.html"
+    },
+    {
+  title: "Prompt Optimizer",
+  description: "An autonomous prompt optimization engine that continuously evolves, benchmarks, and serves task-specific LLM prompts through genetic algorithms, synthetic datasets, deterministic evaluation, and live A/B testing.",
+  tags: ["Python", "FastAPI", "LLMs", "Ollama", "SQLite", "Genetic Algorithms", "LLMOps", "Prompt Engineering", "Synthetic Data"],
+  link: "https://github.com/mantavyamaan/Prompt_optimizer",
+  demo: "https://mantavyamaan.github.io/Prompt_optimizer/docs/"
+  },
+    {
+      title: "DocuMind AI",
+      description: "An intelligent  RAG system featuring a dual-mode architecture. Seamlessly switches between local privacy-first execution via Ollama and a highly scalable enterprise cloud pipeline using AWS S3, Pinecone, and OpenAI.",
+      tags: [ "Python", "RAG", "AWS S3", "Pinecone", "Ollama", "OpenAI", "Streamlit", "LangChain"],
+      link: "https://github.com/mantavyamaan/DocuMind-AI",
+      demo: "https://mantavyamaan.github.io/DocuMind-AI/static_demo/"
+    },
+    {
+      title: "Lead Scoring Model",
+      description: "Intelligent lead scoring framework that evaluates prospects using business, financial, engagement, and behavioral metrics to prioritize high-value leads and improve sales decision-making.",
+      tags: ["Python","NumPy","Pandas","SciPy","Predictive Analytics","Statistics","Business Intelligence"],
+      link: "https://github.com/mantavyamaan/Lead_Score",
+      demo: "https://mantavyamaan.github.io/Lead_Score/lead-score-console.html"
+    },
+    {
+      title: "Project Scoring Model",
+      description: "Decision intelligence framework that quantitatively evaluates projects using strategic, financial, operational, and risk-based indicators for portfolio optimization.",
+      tags: ["Python","NumPy","Pandas","Optimization","Mathematical Modeling","Decision Intelligence","Analytics"],
+      link: "https://github.com/mantavyamaan/Project_Score",
+      demo: "https://mantavyamaan.github.io/Project_Score/project-score-console.html"
+    },
+    {
+      title: "Employee Scoring Model",
+      description: "Data-driven employee evaluation framework integrating multiple performance dimensions into a standardized score to support objective workforce assessment and talent management.",
+      tags: ["Python","Pandas","Statistics","Statistical Modeling","HR Analytics","Business Analytics","Performance Evaluation"],
+      link: "https://github.com/mantavyamaan/Employee_Score",
+      demo: "https://mantavyamaan.github.io/Employee_Score/employee-score-console.html"
+    },
+    {
+  title: "Growth Score Model",
+  description: "Cumulative employee growth assessment framework using additive contribution scoring, achievement-based evaluation, and role-specific performance pillars to measure long-term workforce growth and development.",
+  tags: [ "Python", "Statistical Modeling", "Performance Analytics", "Workforce Analytics", "Mathematical Modeling", "Decision Intelligence"],
+  link: "https://github.com/mantavyamaan/Growth_Model",
+  demo: "https://mantavyamaan.github.io/Growth_Model/growth-model-console.html"
+}
+  ],
+  experience: [
+  {
+  title: "Mathematical Modelling & AI Intern",
+  company: "Palpx",
+  date: "May'26 – Jul'26",
+  description: "Designed mathematical decision models and production-grade AI systems spanning predictive analytics, retrieval-augmented generation, intelligent LLM orchestration, and inference optimization to support enterprise decision-making.",
+  technologies: [
+    "Python",
+    "FastAPI",
+    "Pandas",
+    "NumPy",
+    "SQLite",
+    "LLMs",
+    "RAG",
+    "Statistical Modeling",
+    "Bayesian Inference",
+    "Mathematical Optimization",
+    "Prompt Engineering",
+    "Decision Intelligence",
+    "Lambda Calculus"
+  ],
+  responsibilities: [
+    "Developed four enterprise-grade predictive scoring models using statistical modeling, probabilistic inference, and mathematical optimization.",
+    "Engineered AI infrastructure including an intelligent LLM routing engine, retrieval-augmented generation system, and semantic AI inference platform.",
+    "Applied Lambda Calculus and mathematical foundations in computational research, AI system design, and optimization workflows."
+  ],
+  projectsCompleted: [
+    "ATLAS Router (100+ Model Routing)",
+    "Neural Gateway",
+    "DocuMind AI (RAG)",
+    "Lead Score Model",
+    "Project Score Model",
+    "Employee Score Model",
+    "Growth Score Model"
+  ],
+  impact: [
+    "Delivered multiple AI and mathematical modeling solutions adopted across enterprise decision-support workflows.",
+    "Built scalable LLM infrastructure supporting intelligent routing, retrieval, and semantic inference across 100+ AI models.",
+    "Integrated statistical reasoning and mathematical optimization to improve the reliability, scalability, and explainability of AI systems."
+  ],
+  skillsLearned: [
+    "Bayesian inference",
+    "LLM orchestration",
+    "Retrieval-Augmented Generation (RAG)",
+    "Decision intelligence",
+    "Prompt engineering",
+    "Mathematical optimization",
+    "Statistical modeling",
+    "AI system architecture"
+  ],
+  keyAchievements: [
+    "Developed seven production-grade AI and mathematical modeling systems during the internship.",
+    "Built enterprise AI infrastructure spanning intelligent routing, retrieval-augmented generation, and semantic inference for modern LLM applications."
+  ]
+},
+  {
+    title: "Machine Learning & Data Engineering Intern",
+    company: "Gradpipe",
+    date: "Nov'25 – Dec'25",
+    description: "Architected AI-driven recruitment systems utilizing vector databases, hybrid search, AST analysis, and LLM evaluation.",
+    technologies: ["Python", "Vector Databases", "LLMs", "Hybrid Search", "AST Analysis", "Data Engineering"],
+    responsibilities: [
+      "Architected a high-dimensional talent discovery engine using vector DBs and hybrid search for advanced semantic matching.",
+      "Engineered an AST-based code analysis pipeline evaluating code complexity, concurrency, and memory for accurate builder scoring.",
+      "Developed a robust LLM evaluation framework ensuring consistent benchmarking accuracy using judge-based evaluation methodologies."
+    ],
+    projectsCompleted: [
+      "Talent discovery engine",
+      "Hybrid semantic candidate search pipeline",
+      "AST-based code assessment workflow",
+      "LLM-powered technical benchmarking framework"
+    ],
+    impact: [
+      "Streamlined the technical screening process through accurate semantic matching and automated code analysis.",
+      "Enhanced the objectivity of developer benchmarking with rigorous AST and LLM judge-based evaluations.",
+      "Automated technical assessment workflows to support high-volume, high-quality engineering recruitment."
+    ],
+    skillsLearned: [
+      "LLM evaluation design",
+      "Semantic retrieval systems",
+      "Abstract Syntax Tree (AST) analysis",
+      "Judge-based benchmarking"
+    ],
+    keyAchievements: [
+      "Designed a highly accurate talent discovery engine leveraging vector DBs and hybrid search.",
+      "Engineered an AST code analysis pipeline for deep technical assessment of builders."
+    ]
+  },
+  {
+    title: "Data Analyst Intern",
+    company: "Fino Payment Bank",
+    date: "Jun'25 – Jul'25",
+    description: "Engineered analytics dashboards and extracted business insights using Python, SQL, and Tableau for financial and customer data.",
+    technologies: ["Python", "SQL", "Tableau", "Excel", "Pandas", "Matplotlib"],
+    responsibilities: [
+      "Processed and analyzed 1M+ financial records using SQL and Python to identify market trends and customer behavior.",
+      "Developed interactive Tableau dashboards visualizing 20+ KPIs, directly supporting executive decision-making systems.",
+      "Collaborated with cross-functional teams to enhance data integrity and contribute to improved analytical models."
+    ],
+    projectsCompleted: [
+      "Customer segmentation dashboard",
+      "Transaction behavior analysis",
+      "Operational KPI reporting dashboards",
+      "Automated reporting workflows"
+    ],
+    impact: [
+      "Driven strategic executive decision-making through actionable visualizations of 20+ KPIs.",
+      "Successfully processed over 1 million financial records, uncovering valuable market trends.",
+      "Significantly improved analytical data integrity across cross-functional enterprise teams."
+    ],
+    skillsLearned: [
+      "Financial data analysis",
+      "Tableau dashboard storytelling",
+      "Business KPI design",
+      "Large-scale data processing (1M+ records)"
+    ],
+    keyAchievements: [
+      "Analyzed 1M+ financial records to identify actionable market and customer behavioral trends.",
+      "Deployed interactive Tableau dashboards that actively support executive decision-making systems."
+    ]
+  }
+],
+
+  contacts: [
+    {  label: "Gmail",     icon: `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`, link: "mailto:maanmantavya.iitb@gmail.com" },
+    {  label: "LinkedIn",  icon: `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>`, link: "https://www.linkedin.com/in/mantavya-maan-892304277" },
+    {  label: "GitHub",    icon: `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>`, link: "https://github.com/mantavyamaan" },
+    {  label: "Instagram", icon: `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>`, link: "https://instagram.com/maan_mantavya_" }
+  ]
+};
+
+/* ── BUILD ────────────────────────────────────────────────── */
+(function build() {
+  document.getElementById("skills-list").innerHTML =
+    data.skills.map((s, idx) =>
+      `<div class="skill-pill" data-skill="${idx}">${s.emoji ? `<span class="emoji">${s.emoji}</span>` : ''}${s.name}</div>`
+    ).join("");
+
+  document.getElementById("projects-list").innerHTML =
+    data.projects.map(p => `
+      <div class="project-card tilt fade-up">
+        <div class="glare"></div>
+        ${p.icon ? `<div class="project-icon">${p.icon}</div>` : ''}
+        <h3>${p.title}</h3>
+        <p>${p.description}</p>
+        <div class="project-tags">
+          ${p.tags.map(t => `<span class="project-tag">${t}</span>`).join("")}
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="${p.link}" target="_blank" rel="noopener">
+            View on GitHub
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </a>
+          ${p.demo ? `
+          <a class="project-link project-link-demo" href="${p.demo}" target="_blank" rel="noopener">
+            Access the Model
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </a>` : ''}
+        </div>
+      </div>
+    `).join("");
+
+  document.getElementById("experience-list").innerHTML =
+  data.experience.map((e, idx) => `
+    <div class="job-card fade-up job-toggle" data-job="${idx}">
+      <div class="job-dot"></div>
+      <div class="job-top">
+        <h3>${e.title}</h3>
+        <span class="job-date">${e.date}</span>
+      </div>
+      <div class="job-company">
+      ${e.company}
+      <span class="job-chevron">▼</span>
+      </div>
+      <p>${e.description}</p>
+
+      <div class="job-details" id="job-details-${idx}">
+        <div class="job-detail-block">
+          <div class="job-detail-title">Technologies Used</div>
+          <ul class="job-detail-list">
+            ${e.technologies.map(item => `<li>${item}</li>`).join("")}
+          </ul>
+        </div>
+
+        <div class="job-detail-block">
+          <div class="job-detail-title">Responsibilities</div>
+          <ul class="job-detail-list">
+            ${e.responsibilities.map(item => `<li>${item}</li>`).join("")}
+          </ul>
+        </div>
+
+        <div class="job-detail-block">
+          <div class="job-detail-title">Projects Completed</div>
+          <ul class="job-detail-list">
+            ${e.projectsCompleted.map(item => `<li>${item}</li>`).join("")}
+          </ul>
+        </div>
+
+        <div class="job-detail-block">
+          <div class="job-detail-title">Impact</div>
+          <ul class="job-detail-list">
+            ${e.impact.map(item => `<li>${item}</li>`).join("")}
+          </ul>
+        </div>
+
+        <div class="job-detail-block">
+          <div class="job-detail-title">Skills Learned</div>
+          <ul class="job-detail-list">
+            ${e.skillsLearned.map(item => `<li>${item}</li>`).join("")}
+          </ul>
+        </div>
+
+        <div class="job-detail-block">
+          <div class="job-detail-title">Key Achievements</div>
+          <ul class="job-detail-list">
+            ${e.keyAchievements.map(item => `<li>${item}</li>`).join("")}
+          </ul>
+        </div>
+      </div>
+    </div>
+  `).join("");
+
+  document.getElementById("contact-links").innerHTML =
+    data.contacts.map(c => `
+      <a class="contact-link ripple-host" href="${c.link}" target="_blank" rel="noopener">
+        ${c.icon ? `<span class="icon">${c.icon}</span>` : ''}${c.label}
+      </a>
+    `).join("");
+
+  document.getElementById("footer-text").innerHTML =
+    `© ${new Date().getFullYear()} · Designed &amp; Developed by Mantavya Maan · <a href="mailto:maanmantavya.iitb@gmail.com">maanmantavya.iitb@gmail.com</a>`;
+})();
+
+/* ── PRELOADER + PAGE ENTRANCE ────────────────────────────── */
+window.addEventListener("load", () => {
+  const pre = document.getElementById("preloader");
+  const page = document.getElementById("page");
+  setTimeout(() => {
+    pre.classList.add("hidden");
+    page.classList.add("loaded");
+  }, 900); // minimum loader time so it feels intentional
+});
+/* fallback in case 'load' is slow */
+setTimeout(() => {
+  document.getElementById("preloader").classList.add("hidden");
+  document.getElementById("page").classList.add("loaded");
+}, 3500);
+
+/* ── TYPING ANIMATION FOR ROLE ────────────────────────────── */
+(function typeRole() {
+  const el = document.getElementById("hero-role");
+  const full = "4th Year Mathematics Undergraduate · IIT Bombay";
+  let i = 0;
+  const caret = '<span class="type-caret"></span>';
+  (function step() {
+    if (i <= full.length) {
+      const partial = full.slice(0, i)
+        .replace("IIT Bombay", '<span>IIT Bombay</span>');
+      el.innerHTML = partial + caret;
+      i++;
+      setTimeout(step, 45);
+    } else {
+      el.innerHTML = full.replace("IIT Bombay", '<span>IIT Bombay</span>') + caret;
+    }
+  })();
+})();
+
+/* ── INTERSECTION OBSERVER (fade-up + count up) ──────────── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add("visible"), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = +el.dataset.count;
+      const suffix = el.dataset.suffix || "";
+      let cur = 0;
+      const tick = () => {
+        cur += Math.ceil(target / 30);
+        if (cur >= target) { el.textContent = target + suffix; }
+        else { el.textContent = cur + suffix; requestAnimationFrame(tick); }
+      };
+      tick();
+      countObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll("[data-count]").forEach(el => countObserver.observe(el));
+
+/* ── NAVBAR SCROLL + PROGRESS + SCROLLSPY ─────────────────── */
+const navbar = document.getElementById("navbar");
+const progress = document.getElementById("scroll-progress");
+const sections = [...document.querySelectorAll("section[id]")];
+const navAnchors = [...document.querySelectorAll(".nav-links a")];
+
+window.addEventListener("scroll", () => {
+  navbar.classList.toggle("scrolled", window.scrollY > 30);
+  const h = document.documentElement;
+  const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+  progress.style.width = pct + "%";
+
+  let current = "";
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navAnchors.forEach(a => {
+    a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+  });
+});
+
+/* ── HAMBURGER ────────────────────────────────────────────── */
+const hamburger = document.getElementById("hamburger");
+const navLinks  = document.getElementById("nav-links");
+hamburger.addEventListener("click", () => navLinks.classList.toggle("open"));
+navLinks.querySelectorAll("a").forEach(a =>
+  a.addEventListener("click", () => navLinks.classList.remove("open")));
+  document.querySelectorAll(".job-toggle").forEach(card=>{
+    card.addEventListener("click",function(){
+        this.classList.toggle("open");
+    });
+});
+
+
+
+/* ── PARTICLE NETWORK BACKGROUND ──────────────────────────── */
+const pc = document.getElementById("particle-canvas");
+const pctx = pc.getContext("2d");
+let time = 0;
+let mx = innerWidth / 2;
+let my = innerHeight / 2;
+
+function resizePC() {
+  pc.width = innerWidth;
+  pc.height = innerHeight;
+}
+resizePC();
+window.addEventListener("resize", resizePC);
+window.addEventListener("mousemove", e => {
+  // Smoothly interpolate mouse for fluid reaction
+  mx += (e.clientX - mx) * 0.05;
+  my += (e.clientY - my) * 0.05;
+});
+
+function drawWaves() {
+  // Clear the canvas each frame to keep it transparent so me.jpg shows through!
+  pctx.clearRect(0, 0, pc.width, pc.height);
+  
+  time += 0.004;
+  const numLines = 8;
+  
+  const targetX = mx / pc.width;
+  const targetY = my / pc.height;
+  
+  for (let i = 0; i < numLines; i++) {
+    pctx.beginPath();
+    pctx.lineWidth = 1;
+    // Elegant, icy-silver abstract curves
+    pctx.strokeStyle = `rgba(226, 232, 240, ${0.03 + (i * 0.015)})`;
+    
+    for (let x = 0; x <= pc.width; x += 20) {
+      // Abstract mathematical equation for dynamic topological mesh
+      const freq1 = 0.001 + (i * 0.0003) + (targetX * 0.0015);
+      const freq2 = 0.0015 + (targetY * 0.001);
+      
+      const y1 = Math.sin(x * freq1 + time + i) * 200;
+      const y2 = Math.cos(x * freq2 - time * 1.2) * 150;
+      
+      const baseY = pc.height / 2;
+      // Add slight vertical shift based on line index
+      const shift = (i - numLines/2) * 30; 
+      
+      const y = baseY + y1 + y2 + shift;
+      
+      if (x === 0) pctx.moveTo(x, y);
+      else pctx.lineTo(x, y);
+    }
+    pctx.stroke();
+  }
+  requestAnimationFrame(drawWaves);
+}
+drawWaves();
+
+
+
+/* ── RIPPLE ON CLICKABLES ─────────────────────────────────── */
+document.addEventListener("click", e => {
+  const host = e.target.closest(".ripple-host");
+  if (!host) return;
+  const rect = host.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height) * 2;
+  const r = document.createElement("span");
+  r.className = "ripple";
+  r.style.width = r.style.height = size + "px";
+  r.style.left = (e.clientX - rect.left) + "px";
+  r.style.top = (e.clientY - rect.top) + "px";
+  host.appendChild(r);
+  setTimeout(() => r.remove(), 600);
+});
+
+/* ── 3D TILT ON CARDS ─────────────────────────────────────── */
+document.querySelectorAll(".tilt").forEach(card => {
+  card.addEventListener("mousemove", e => {
+    const rect = card.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width;
+    const py = (e.clientY - rect.top) / rect.height;
+    const rotY = (px - 0.5) * 12;
+    const rotX = (0.5 - py) * 12;
+    card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px)`;
+    card.style.setProperty("--mx", (px*100)+"%");
+    card.style.setProperty("--my", (py*100)+"%");
+  });
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "";
+  });
+});
+
+/* ── MAGNETIC BUTTONS ─────────────────────────────────────── */
+document.querySelectorAll("[data-magnetic]").forEach(btn => {
+  btn.addEventListener("mousemove", e => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width/2;
+    const y = e.clientY - rect.top - rect.height/2;
+    btn.style.transform = `translate(${x*0.25}px, ${y*0.35}px)`;
+  });
+  btn.addEventListener("mouseleave", () => { btn.style.transform = ""; });
+});
+
+/* ── SKILL PILL CLICK = ZAP + DESCRIPTION ─────────────────── */
+const skillDesc  = document.getElementById("skill-desc");
+const sdTitle    = document.getElementById("sd-title");
+const sdBody     = document.getElementById("sd-body");
+let activeSkill  = null;
+
+document.addEventListener("click", e => {
+  const pill = e.target.closest(".skill-pill");
+  if (!pill) return;
+
+  /* zap animation */
+  pill.classList.remove("zap");
+  void pill.offsetWidth;
+  pill.classList.add("zap");
+
+  /* show / toggle description */
+  const idx = +pill.dataset.skill;
+  const skill = data.skills[idx];
+  if (activeSkill === idx) {
+    skillDesc.classList.remove("show");
+    activeSkill = null;
+  } else {
+    sdTitle.textContent = skill.emoji ? `${skill.emoji} ${skill.name}` : skill.name;
+    sdBody.textContent = skill.desc;
+    skillDesc.classList.add("show");
+    activeSkill = idx;
+  }
+});
+
+/* ── EMAIL CLICK TO COPY ──────────────────────────────────── */
+const emailEl = document.getElementById("email-copy");
+const toast = document.getElementById("copy-toast");
+emailEl.addEventListener("click", () => {
+  const email = emailEl.textContent.trim();
+  navigator.clipboard?.writeText(email).then(() => {
+    toast.classList.add("show");
+    setTimeout(() => toast.classList.remove("show"), 1800);
+  }).catch(() => {
+    window.location.href = "mailto:" + email;
+  });
+});
+</script>
+<script>
+history.scrollRestoration = "manual";
+window.scrollTo(0,0);
+</script>
+</body>
+</html>
