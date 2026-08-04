@@ -1534,7 +1534,7 @@ document.addEventListener("click", e => {
     activeSkill = null;
   } else {
     sdTitle.textContent = skill.emoji ? `${skill.emoji} ${skill.name}` : skill.name;
-    sdBody.textContent = skill.desc;
+    sdBody.innerHTML = skill.desc;
     skillDesc.classList.add("show");
     activeSkill = idx;
   }
