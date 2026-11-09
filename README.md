@@ -15,10 +15,4 @@ Source for my portfolio website: **[mantavyamaan.github.io](https://mantavyamaan
 | `mantavya_resume.pdf` | Resume linked from the site |
 | `sitemap.xml`, `robots.txt` | Search engine hints |
 
-## Editing
 
-- **Projects, experience, education, skills** are plain HTML inside `index.html` — edit the matching `<section>`.
-- **Skill descriptions** (the text that appears when a skill is tapped) live in the `skills` array at the bottom of `index.html`, in the same order as the skill buttons.
-- After changing content, update `<lastmod>` in `sitemap.xml`.
-
-Hosted on GitHub Pages from the `main` branch.
