@@ -529,6 +529,13 @@
   }
   .project-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
   .project-card:hover .project-shot img { transform: scale(1.04); }
+  .shot-grid .q { position: absolute; width: 50%; height: 50%; display: flex; align-items: flex-end; justify-content: flex-start; padding: 8px; transition: background 0.25s, box-shadow 0.25s; }
+  .shot-grid .q-tl { top: 0; left: 0; } .shot-grid .q-tr { top: 0; right: 0; }
+  .shot-grid .q-bl { bottom: 0; left: 0; } .shot-grid .q-br { bottom: 0; right: 0; }
+  .shot-grid .q span { font-size: 0.72rem; font-weight: 600; color: #fff; background: rgba(10,12,18,0.85); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 3px 8px; opacity: 0; transform: translateY(4px); transition: opacity 0.25s, transform 0.25s; }
+  .shot-grid .q:hover { background: rgba(255,255,255,0.06); box-shadow: inset 0 0 0 2px var(--accent-3); }
+  .shot-grid .q:hover span { opacity: 1; transform: none; }
+  .project-card:hover .shot-grid img { transform: none; }
   .project-body { padding: 0 18px; display: flex; flex-direction: column; flex: 1; position: relative; z-index: 2; }
   .project-kicker { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-3); margin-bottom: 6px; }
   .project-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: #fff; }
@@ -962,9 +969,13 @@
 
       <article class="project-card tilt fade-up">
         <div class="glare"></div>
-        <a class="project-shot" href="https://mantavyamaan.github.io/Lead_Score/lead-score-console.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <div class="project-shot shot-grid">
           <img src="assets/projects/scoring-suite.webp" alt="" width="800" height="500" loading="lazy" decoding="async">
-        </a>
+          <a class="q q-tl" href="https://mantavyamaan.github.io/Lead_Score/lead-score-console.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>Lead Score</span></a>
+          <a class="q q-tr" href="https://mantavyamaan.github.io/Project_Score/project-score-console.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>Project Score</span></a>
+          <a class="q q-bl" href="https://mantavyamaan.github.io/Employee_Score/employee-score-console.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>Employee Score</span></a>
+          <a class="q q-br" href="https://mantavyamaan.github.io/Growth_Model/growth-model-console.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>Growth Model</span></a>
+        </div>
         <div class="project-body">
           <div class="project-kicker">4 scoring models</div>
           <h3>Decision Scoring Suite</h3>
